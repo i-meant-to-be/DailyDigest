@@ -139,17 +139,39 @@ function subjectPressure(subject, questions, config) {
   return subjectWeight(subject, config) - mine / totalAttempts;
 }
 
+/**
+ * 문항 풀 정의.
+ *
+ * `unseen`(아직 물어본 적 없음)을 둘로 쪼갠 것이 핵심이다. 성격이 전혀 다르기 때문이다.
+ *   unknown   — 답이 비어 있음. 정말로 모르는 것
+ *   unchecked — 답은 적어 뒀지만 한 번도 점검받지 않은 것
+ * 쪼개지 않으면 수가 많은 쪽만 계속 뽑혀서 다른 쪽이 영영 안 나온다.
+ */
+const POOLS = {
+  wrong: (q) => q.status === 'wrong',
+  shaky: (q) => q.status === 'shaky',
+  unknown: (q) => q.status === 'unseen' && !q.answered,
+  unchecked: (q) => q.status === 'unseen' && q.answered,
+  unseen: (q) => q.status === 'unseen',
+  known: (q) => q.status === 'known',
+};
+
 /** 슬롯이 비었을 때 어디서 빌려올지. 앞에서부터 차례로 찾는다. */
 const FALLBACK = {
-  wrong: ['wrong', 'shaky', 'unseen'],
+  wrong: ['wrong', 'shaky', 'unchecked', 'unknown'],
+  shaky: ['shaky', 'wrong', 'unchecked'],
+  unknown: ['unknown', 'unchecked', 'shaky'],
+  unchecked: ['unchecked', 'unknown', 'shaky'],
   unseen: ['unseen', 'wrong', 'shaky'],
-  known: ['known', 'shaky'],
-  gap: ['gap', 'unseen'],
+  known: ['known', 'shaky', 'unchecked'],
+  gap: ['gap', 'unknown', 'unchecked'],
 };
 
 const SLOT_REASON = {
   wrong: '이전 오답',
   shaky: '이전에 불완전하게 답한 문항',
+  unknown: '답을 적어 둔 적 없는 문항',
+  unchecked: '답은 정리했지만 아직 점검받지 않은 문항',
   unseen: '아직 물어본 적 없음',
   known: '숙지 상태 재점검',
   gap: '주제 대장 공백 (지식 파일에 아직 없는 주제)',
@@ -178,16 +200,28 @@ export function selectQuestions({ questions, gaps = [], config, today, subject =
   // 최근에 낸 문항은 일단 빼 둔다. 후보가 모자라면 아래에서 다시 꺼낸다.
   const isFresh = (q) => daysBetween(q.last_asked, today) >= cooldown;
   const rank = (q) => DIFFICULTY_ORDER[q.difficulty] ?? 1;
-  const byStatus = (status) => live.filter((q) => q.status === status);
+  const byStatus = (pool) => live.filter(POOLS[pool]);
+
+  // 이번 세션에 이미 뽑힌 과목은 뒤로 민다.
+  // 과목 상한(max_per_subject)만으로는 부족하다. 상한이 3이면 6문항이 두 과목으로도 채워지는데,
+  // 특히 시작 직후처럼 이력이 없을 때는 가중치가 높은 과목이 계속 1순위라 쏠림이 심해진다.
+  const spread = (q) => subjectCount.get(q.subject) ?? 0;
+
+  // 오답·불안정은 쉬운 것부터. 기초를 못 푸는 상태를 오래 두면 안 된다.
+  const byDifficulty = (a, b) => rank(a) - rank(b) || spread(a) - spread(b) || daysBetween(b.last_asked, today) - daysBetween(a.last_asked, today) || a.id.localeCompare(b.id);
+  // 아직 안 물어본 것은 덜 다룬 과목부터.
+  const bySubjectNeed = (a, b) => spread(a) - spread(b) || subjectPressure(b.subject, live, config) - subjectPressure(a.subject, live, config) || rank(a) - rank(b) || a.id.localeCompare(b.id);
+  // 숙지는 가장 오래 안 본 것부터.
+  const byStaleness = (a, b) => spread(a) - spread(b) || daysBetween(b.last_asked, today) - daysBetween(a.last_asked, today) || a.id.localeCompare(b.id);
 
   const comparators = {
-    // 오답·불안정은 쉬운 것부터. 기초를 못 푸는 상태를 오래 두면 안 된다.
-    wrong: (a, b) => rank(a) - rank(b) || daysBetween(b.last_asked, today) - daysBetween(a.last_asked, today) || a.id.localeCompare(b.id),
-    unseen: (a, b) => subjectPressure(b.subject, live, config) - subjectPressure(a.subject, live, config) || rank(a) - rank(b) || a.id.localeCompare(b.id),
-    // 숙지는 가장 오래 안 본 것부터.
-    known: (a, b) => daysBetween(b.last_asked, today) - daysBetween(a.last_asked, today) || a.id.localeCompare(b.id),
+    wrong: byDifficulty,
+    shaky: byDifficulty,
+    unknown: bySubjectNeed,
+    unchecked: bySubjectNeed,
+    unseen: bySubjectNeed,
+    known: byStaleness,
   };
-  comparators.shaky = comparators.wrong;
 
   const picks = [];
   const usedIds = new Set();
@@ -217,10 +251,10 @@ export function selectQuestions({ questions, gaps = [], config, today, subject =
   );
   let gapCursor = 0;
 
-  /** 한 슬롯을 채운다. 우선 쿨다운을 지키고, 그래도 없으면 쿨다운을 무시한다. */
-  function fillSlot(slot) {
-    for (const relaxCooldown of [false, true]) {
-      for (const source of FALLBACK[slot]) {
+  /** 한 슬롯을 채운다. sources를 앞에서부터 훑고, relaxOptions에 따라 쿨다운을 풀기도 한다. */
+  function fillSlot(slot, sources, relaxOptions) {
+    for (const relaxCooldown of relaxOptions) {
+      for (const source of sources) {
         if (source === 'gap') {
           while (gapCursor < gapQueue.length) {
             const gap = gapQueue[gapCursor];
@@ -275,8 +309,19 @@ export function selectQuestions({ questions, gaps = [], config, today, subject =
   while (plan.length < total) plan.push('unseen');
   plan.length = Math.min(plan.length, total);
 
+  // 두 번에 나눠 채운다.
+  //   1차 — 각 슬롯이 자기 풀에서만 가져간다
+  //   2차 — 1차에서 못 채운 슬롯만 대체 순서를 따라 다른 풀에서 빌려온다
+  // 한 번에 처리하면 앞 순서의 슬롯이 대체 후보로 남의 풀을 먼저 비워, 정작 그 풀을
+  // 전담하는 슬롯이 빈손이 된다. 재고가 적은 풀일수록 이 문제가 심해진다.
+  const pending = [];
   for (const slot of plan) {
-    if (!fillSlot(slot)) notes.push(`${SLOT_REASON[slot]} 슬롯을 채울 후보가 없었습니다.`);
+    if (!fillSlot(slot, [FALLBACK[slot][0]], [false])) pending.push(slot);
+  }
+  for (const slot of pending) {
+    if (!fillSlot(slot, FALLBACK[slot], [false, true])) {
+      notes.push(`${SLOT_REASON[slot]} 슬롯을 채울 후보가 없었습니다.`);
+    }
   }
 
   // 슬롯 규칙으로 다 못 채웠으면 남은 문항으로 개수를 맞춘다.
@@ -284,7 +329,7 @@ export function selectQuestions({ questions, gaps = [], config, today, subject =
   if (picks.length < total) {
     const before = picks.length;
     for (const relaxCooldown of [false, true]) {
-      for (const source of ['unseen', 'shaky', 'wrong', 'known']) {
+      for (const source of ['unchecked', 'unknown', 'shaky', 'wrong', 'known']) {
         while (picks.length < total) {
           const candidate = byStatus(source)
             .filter((q) => !usedIds.has(q.id))
@@ -319,27 +364,40 @@ export function selectQuestions({ questions, gaps = [], config, today, subject =
   for (const [difficulty, floor] of Object.entries(floors)) {
     let have = picks.filter((p) => p.difficulty === difficulty).length;
     while (have < floor) {
-      const candidate = live
-        .filter((q) => q.difficulty === difficulty && !usedIds.has(q.id))
-        .sort((a, b) => {
-          const order = { wrong: 0, shaky: 1, unseen: 2, known: 3 };
-          return (order[a.status] ?? 4) - (order[b.status] ?? 4) || a.id.localeCompare(b.id);
-        })[0];
-      if (!candidate) {
-        notes.push(`난이도 하한(${difficulty} ${floor}문항)을 채울 문항이 지식 파일에 없습니다.`);
-        break;
-      }
+      // 밀어낼 문항을 먼저 정하고 그 몫을 돌려놓아야, 교체 후보가 과목·난이도 상한을
+      // 넘지 않는지 정확히 판단할 수 있다.
       let victimIndex = -1;
       for (let i = picks.length - 1; i >= 0; i -= 1) {
-        if (picks[i].difficulty !== difficulty) {
-          victimIndex = i;
-          break;
-        }
+        const p = picks[i];
+        if (p.difficulty === difficulty) continue;
+        // 다른 난이도의 하한을 이미 아슬아슬하게 채운 문항은 건드리지 않는다.
+        const otherFloor = floors[p.difficulty] ?? 0;
+        if (otherFloor > 0 && picks.filter((x) => x.difficulty === p.difficulty).length <= otherFloor) continue;
+        victimIndex = i;
+        break;
       }
       if (victimIndex === -1) break;
+
       const victim = picks[victimIndex];
       if (victim.id) usedIds.delete(victim.id);
       countIn(victim, -1);
+
+      const candidate = live
+        .filter((q) => q.difficulty === difficulty && !usedIds.has(q.id))
+        .filter((q) => canTake(q.subject, q.difficulty))
+        .sort((a, b) => {
+          const order = { wrong: 0, shaky: 1, unseen: 2, known: 3 };
+          return (order[a.status] ?? 4) - (order[b.status] ?? 4) || spread(a) - spread(b) || a.id.localeCompare(b.id);
+        })[0];
+
+      if (!candidate) {
+        // 되돌린다. 교체할 수 없으면 원래 문항을 그대로 둔다.
+        if (victim.id) usedIds.add(victim.id);
+        countIn(victim, 1);
+        notes.push(`난이도 하한(${difficulty} ${floor}문항)을 채울 문항을 찾지 못했습니다.`);
+        break;
+      }
+
       const replacement = {
         id: candidate.id,
         topic: candidate.title,
@@ -525,6 +583,7 @@ function commandSync(today) {
         subject: q.subject,
         difficulty: q.difficulty,
         title: q.title,
+        answered: q.answered,
         status: 'unseen',
         attempts: 0,
         streak: 0,
@@ -537,15 +596,15 @@ function commandSync(today) {
       added.push(q.id);
       continue;
     }
-    // 지식 파일이 원본이므로 과목·난이도·제목은 늘 그쪽을 따른다.
-    const before = JSON.stringify([existing.subject, existing.difficulty, existing.title, existing.orphaned]);
+    // 지식 파일이 원본이므로 과목·난이도·제목·답변 유무는 늘 그쪽을 따른다.
+    const snapshot = () => JSON.stringify([existing.subject, existing.difficulty, existing.title, existing.answered, existing.orphaned]);
+    const before = snapshot();
     existing.subject = q.subject;
     existing.difficulty = q.difficulty;
     existing.title = q.title;
+    existing.answered = q.answered;
     if (existing.orphaned) delete existing.orphaned;
-    if (JSON.stringify([existing.subject, existing.difficulty, existing.title, existing.orphaned]) !== before) {
-      changed.push(q.id);
-    }
+    if (snapshot() !== before) changed.push(q.id);
   }
 
   const orphaned = [];
@@ -740,7 +799,11 @@ function commandReport(today) {
   lines.push('');
 
   const all = bucket(questions);
+  const unknown = questions.filter(POOLS.unknown).length;
+  const unchecked = questions.filter(POOLS.unchecked).length;
   lines.push(`전체 ${questions.length}문항 · 숙지 ${all.known} · 불안정 ${all.shaky} · 오답 ${all.wrong} · 미학습 ${all.unseen} · 숙련도 ${mastery_score(questions)}%`);
+  lines.push('');
+  lines.push(`미학습 ${all.unseen}문항의 내역 — 답이 비어 있는 문항 ${unknown}개, 답은 정리했으나 점검받지 않은 문항 ${unchecked}개`);
   lines.push('');
 
   lines.push('## 과목별');
