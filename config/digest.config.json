@@ -1,0 +1,35 @@
+{
+  "_설명": "다이제스트 출제 정책. 이 파일만 고치면 스크립트나 스킬을 건드릴 필요가 없다.",
+
+  "questions_per_session": 6,
+
+  "_mix": "슬롯별 문항 수. wrong=틀린 것, unseen=아직 안 물어본 것, known=숙지한 것 재점검, gap=주제 대장에만 있고 지식 파일에 없는 것. 5문항으로 줄이려면 gap을 0으로 둔다.",
+  "mix": { "wrong": 2, "unseen": 2, "known": 1, "gap": 1 },
+
+  "_difficulty": "난이도 목표 비율과 세션당 하한·상한. 기초를 최소 1문항 강제하는 이유는 PROFILE.md에 있다.",
+  "difficulty_mix": { "기초": 0.35, "실무": 0.45, "심화": 0.20 },
+  "difficulty_floor": { "기초": 1 },
+  "difficulty_cap": { "심화": 2 },
+
+  "_subject_weight": "과목별 출제 비중. 뒤에 /*를 붙이면 하위 경로 전체에 적용된다.",
+  "subject_weight": {
+    "platform/*": 0.40,
+    "lang/java-kotlin": 0.15,
+    "lang/c-cpp": 0.05,
+    "cs/os": 0.08,
+    "cs/network": 0.07,
+    "cs/design": 0.06,
+    "cs/database": 0.04,
+    "cs/data-structures": 0.08,
+    "cs/algorithms": 0.07
+  },
+
+  "_cooldown_days": "최근 이 일수 안에 출제된 문항은 제외한다. 후보가 모자라면 무시하고 오래된 순으로 채운다.",
+  "cooldown_days": 3,
+
+  "_known_decay_days": "숙지 상태가 이 일수 동안 점검되지 않으면 불안정으로 내린다.",
+  "known_decay_days": 60,
+
+  "_max_per_subject": "한 세션에서 같은 과목이 차지할 수 있는 최대 문항 수.",
+  "max_per_subject": 3
+}
