@@ -1,0 +1,13 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 편집기
+.vscode/
+.idea/
+*.swp
+
+# 다이제스트 임시 파일
+sessions/**/*.tmp
+sessions/**/.draft*
