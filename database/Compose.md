@@ -1,0 +1,81 @@
+# Compose
+
+- Recomposition
+  - `remember`는 recomposition 사이에서 값을 유지하기 위해 composition에 값을 저장하는 API
+  - 다만 `remember` 자체가 상태 변경을 감지하거나 Recomposition을 유발하는 것은 아님
+  - `mutableStateOf` 같은 관찰 가능한 상태 값을 보관했을 때 그 상태 값의 변경을 Compose가 관찰해 Recomposition을 수행함
+- `remember`는 무엇?
+  - `remember`는 Compose가 Recomposition을 위해 관리해야 하는 상태 변수에 달아주는 함수
+  - `remember` 없는 일반 변수는 변경되어도 Recomposition을 일으키지 않음
+  - 그러나 `remember`가 달린 변수는 변경될 경우 Recomposition을 유발
+- `remember`과 `rememberSaveable`의 차이
+  - `remember`는 Recomposition을 사이에서 값을 유지하지만 Configuration 변화 시에는 기본적으로 유지되지 않음
+  - `rememberSaveable`은 Bundle에 저장 가능한 값이나 Saver로 정의한 값을 저장해 Configuration 변화 이후에도 복원할 수 있게 함
+  - 다만 복잡한 화면 상태나 비즈니스 상태는 ViewModel에서 관리하는 것이 더 적절함
+- State Hoisting
+  - State Hoisting은 직역하면 상태를 모두 위로 올리는 것을 의미
+  - 기술적으로는 하위 Composable이 직접 상태를 소유하지 않고,
+    그 상태를 읽거나 변경해야 하는 최소 공통 상위 Composable 또는 ViewModel로 상태를 올리는 패턴
+  - 이를 통해 하위 Composable은 value와 callback만 받는 stateless 형태가 되어 재사용성과 테스트 가능성이 좋아짐
+  - 또한 이는 Android의 권장 컨벤션 중 하나인 단방향 데이터 플로우 철학과도 일치
+- Stateful Composable과 Stateless Composable
+  - Stateful Composable은 내부에서 상태를 직접 소유하고 변경하는 Composable
+  - Stateless Composable은 상태를 외부에서 값으로 받고 변경 요청을 콜백으로 올리는 Composable
+  - Stateless Composable은 재사용성과 테스트 가능성이 높고, Stateful Composable은 사용은 간단하지만 상태 책임이 내부에 묶임
+- UDF (Unidirectional Data Flow)
+  - 단방향 데이터 흐름이라고 번역되며 데이터가 양쪽을 오가는 게 아니라 한쪽에서 다른 쪽으로 이동해야 함을 의미
+  - 크게는 "State down, event up"을 의미함
+  - 즉, 상태는 ViewModel로부터 UI로 올라가고, 사용자 이벤트는 UI에서 ViewModel로 내려가야 함
+  - Android에서는 Model → ViewModel → Composable의 경로를 통해 데이터가 이동하는 것을 예시로 들 수 있음
+- Composable에서 ViewModel의 역할
+  - Composable에 출력되는 데이터를 유지 및 관리하고, 해당 데이터를 조작하는 역할을 맡음
+  - 데이터 원천과 UI 단 사이에서 UI에 출력할 데이터를 조정하게 됨
+- `mutableStateOf`와 `StateFlow`는 언제 사용?
+  - 전자는 Compose 의존적, 후자는 순수 Kotlin 기능
+  - 둘 다 상태 변화를 관찰해야 하는 값에 사용함
+- `collectAsStateWithLifecycle`은 왜 필요한가?
+  - `StateFlow`는 Kotlin 단 기능임
+  - 즉, Compose나 Android 쪽 생명주기를 모름
+  - 따라서 `StateFlow`가 Android 생명주기에 맞게 동작하도록 `collectAsStateWithLifecycle`로 수집해줘야 함
+- `LaunchedEffect`는 무엇?
+  - `LaunchedEffect`는 Composable이 Composition에 들어왔을 때 Coroutine을 실행하기 위한 부수 효과 API
+  - 키가 변경되면 기존 Coroutine이 취소되고 새 Coroutine이 시작됨
+  - Composable이 Composition에서 나가면 실행 중인 Coroutine도 취소됨
+- `LaunchedEffect` 키의 중요성
+  - 키를 잘못 지정하면 말 그대로 '의도하지 않은 문제'가 발생할 수 있음
+  - 예를 들어 원래는 1분 동안 평균 10번 정도 바뀌는 값을 키로 사용해야 하는데 잘못하여 100번 정도 바뀌는 값을 키로 썼다고 하면, 의도하지 않은 값이 부수 효과를 트리거하는 문제가 발생하게 됨
+- `DisposableEffect`는 무엇?
+  - Composable이 정리될 때 (언마운트될 때) 실행되어야 할 작업이 들어감
+  - React의 `useEffect` 내 반환문과 같은 기능
+  - Composable이 Composition에서 나가면서 구독이나 리소스를 해제해야 할 때 사용
+- `rememberCoroutineScope`과 `LaunchedEffect`의 차이
+  - 전자는 Composable 생명주기에 묶인 `CoroutineScope`를 얻어 이벤트 핸들링 도중 직접 개시해야 할 때 사용
+  - 후자는 특정 키가 변경되거나 Composable의 Composition 혹은 Recomposition이 발생할 때 생성되는 코루틴 스코프
+- `derivedStateOf`는 언제 사용?
+  - 특정 값에서부터 파생되는 다른 값을 추적해야 할 때 사용
+  - 특히 원본 상태는 자주 바뀌지만, 파생 결과가 실제로 바뀔 때만 Recomposition을 유도하고 싶을 때 유용함
+  - 다만 단순한 문자열 조합이나 가벼운 계산에 사용할 경우, 상태 객체 생성/보관, 의존성 추적, 파생 값 갱신 여부 판단 등 오히려 불필요한 오버헤드가 될 수 있음
+- `rememberUpdatedState`는 무엇?
+  - `rememberUpdatedState`는 오래 실행되는 Effect 안에서 최신 State나 람다 함수를 참조해야 할 때 사용
+  - 예를 들어 `LaunchedEffect(Unit)`로 한 번만 실행되는 작업 안에서 `onTimeout` 같은 콜백은 최신 값으로 유지하고 싶지만, 콜백 변경 때문에 Effect 자체를 재시작하고 싶지는 않을 때 사용합니다.
+- `LazyColumn`에서 키를 지정해야 하는 이유
+  - 키가 유효해야만 `LazyColumn`이 각 아이템의 동일성을 제대로 계산할 수 있기 때문
+  - 만약 키가 유효하지 않다면 2개 이상 아이템의 키가 충돌하게 됨
+  - 이 경우 사용자의 입력이 잘못 처리되거나, 불필요한 Recomposition이 일어나는 등 의도하지 않은 결과가 발생할 확률이 높음
+- Compose에서 불필요한 Recomposition을 줄이려면 어떻게 해야 하나요?
+  - 상태를 필요한 최소 범위로 좁혀야 하고, 불필요한 상태를 마구잡이로 추가하면 안 됨
+  - 상태를 너무 상위에 두면 관련 없는 하위 Composable까지 영향을 받을 수 있음
+  - `LazyColumn`에서는 안정적인 키를 제공해야 함
+  - 비용이 큰 계산은 `remember`나 `derivedStateOf`로 분리
+    ViewModel에서 이미 계산 가능한 값은 UI에서 매번 계산하지 않도록 UI State로 내려주는 것도 방법입니다.
+- Modifier의 순서가 중요한 이유
+  - 적용 순서에 따라 UI가 달라질 수 있기 때문
+  - 예를 들어, `clickable {}.clip(RoundedCornerShape(4.dp))`의 순서일 경우 클릭 가능한 영역은 `clip`의 영향을 받지 않아 직사각형으로 출력
+  - 그러나 반대로 순서를 바꾸면 클릭 가능한 영역이 `clip`의 영향을 받아 둥근 사각형으로 출력
+- Compose에서 일회성 이벤트, 예를 들어 Snackbar나 Navigation은 어떻게 처리하는 것이 좋나요?
+  - 일반적으로는 `SharedFlow`로 내보내고, `LaunchedEffect`로 수집해서 이벤트 처리
+  - Snackbar나 Toast는 `SharedFlow` 기반 전역에서 호출 가능한 싱글톤 관리자를 통해 호출하도록 하는 방안도 고려 가능
+- Compose 코드에서 UI 로직과 비즈니스 로직을 어떻게 분리하나요?
+  - UI 로직은 받은 상태 값으로 화면을 그리고 이벤트를 콜백으로 올리는 데에 집중
+  - ViewModel은 사용자 이벤트를 받아 화면 상태를 계산하고 필요한 모델을 호출
+  - 도메인 로직이나 비즈니스 로직은 순수 Kotlin 코드로 작성해 의존성을 줄임
