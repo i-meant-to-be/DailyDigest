@@ -1038,14 +1038,22 @@
       "difficulty": "기초",
       "title": "프로세스와 스레드의 차이는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 2,
+      "gaps": [
+        "PCB를 프로세스 주소 공간과 혼동 — 몰라서 틀림",
+        "프로세스=자원 소유 / 스레드=스케줄링 단위 배분을 반대로 설명 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 2
+        }
+      ]
     },
     "OS-002": {
       "subject": "cs/os",
@@ -2071,14 +2079,22 @@
       "difficulty": "기초",
       "title": "`remember`와 `rememberSaveable`의 차이는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 2,
+      "gaps": [
+        "Hilt의 @ActivityRetainedComponent로 Compose 상태 API를 설명 — 층위 혼동",
+        "rememberSaveable의 SavedInstanceState/Bundle 기반과 Saver 제약을 언급 못함 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 2
+        }
+      ]
     },
     "CMP-003": {
       "subject": "platform/compose",
@@ -2373,14 +2389,23 @@
       "difficulty": "실무",
       "title": "Hilt를 통한 DI가 수동 DI에 비해 좋은 점은 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 3,
+      "gaps": [
+        "컴파일 타임 의존성 그래프 검증이라는 최대 장점 누락 — 몰라서 틀림",
+        "@Singleton/@ActivityRetainedScoped/@ViewModelScoped 스코프 이름을 하나도 못 댐 — 알지만 설명하지 못함",
+        "트레이드오프(빌드 시간, 소규모 프로젝트) 없음"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 3
+        }
+      ]
     },
     "DI-003": {
       "subject": "platform/di",
@@ -2555,14 +2580,22 @@
       "difficulty": "기초",
       "title": "대칭키와 비대칭키 암호는 각각 언제 쓰나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 3,
+      "gaps": [
+        "하이브리드 구조(비대칭키로 세션키 교환 후 대칭키로 데이터 암호화)를 언급 못함 — 몰라서 틀림",
+        "비대칭키의 서명/검증 용도 누락, 알고리즘 이름(AES/RSA/ECDH) 없음 — 알지만 이름을 못 붙임"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 3
+        }
+      ]
     },
     "SEC-007": {
       "subject": "platform/security",
@@ -2668,19 +2701,47 @@
       "title": "Navigation 컴포넌트의 백스택은 어떻게 관리되며, 뒤로가기로 돌아오면 안 되는 화면은 어떻게 처리하나요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": null,
+      "last_asked": "2026-09-02",
       "last_graded": "2026-09-02",
-      "last_score": 3,
+      "last_score": 2,
       "gaps": [
-        "스택 동작은 정확히 아는데 popUpTo/inclusive라는 API 용어를 쓰지 못함 — 알지만 설명하지 못함",
-        "launchSingleTop과 중첩 그래프 단위 pop을 언급하지 못함"
+        "launchSingleTop을 '스택 비우기'로 반대로 이해 — 몰라서 틀림",
+        "inclusive = true 누락. 이게 없으면 로그인 화면이 스택에 남음 — 두 번째 지적",
+        "중첩 그래프 단위 pop 미언급 — 두 번째 지적"
       ],
       "history": [
         {
           "date": "2026-09-02",
           "score": 3
+        },
+        {
+          "date": "2026-09-02",
+          "score": 2
+        }
+      ]
+    },
+    "SEC-014": {
+      "subject": "platform/security",
+      "difficulty": "실무",
+      "title": "앱 서명 키는 어떻게 관리하나요? 키를 잃어버리면 어떤 일이 생기나요?",
+      "answered": false,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-09-02",
+      "last_score": 2,
+      "gaps": [
+        "업로드 키와 앱 서명 키의 관계를 병렬로 오해 — 실제는 파이프라인 앞뒤 단계",
+        "키 분실 시 결과(자체 서명은 복구 불가, 같은 패키지명 업데이트 영구 불가)를 답하지 않음 — 질문 절반 미응답",
+        "디버그 키(공용 자동생성)와 릴리즈 키를 구분하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 2
         }
       ]
     }
