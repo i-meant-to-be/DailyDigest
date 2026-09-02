@@ -281,10 +281,65 @@
 - [ ] 로그에 무엇을 남기면 안 되는가
 - [ ] ProGuard 규칙과 보안의 관계
 
-## 프로젝트 기반
+## project/hilit
 
-실제로 작업한 저장소를 훑어 프로젝트별 예상 질문을 채울 자리다. **후속 작업으로 남겨 두었다.**
+> [Hilit-Android](https://github.com/Team-Hilit/Hilit-Android) — 멀티모듈 준비 · 디자인 시스템 카탈로그 · AI 에이전트 기반
 
-프로젝트마다 (a) 채택한 구조와 그 근거, (b) 검토했으나 버린 대안, (c) 면접관이 파고들 지점, (d) 지금 다시 설계한다면 바꿀 것을 뽑아 한 줄씩 추가한다. 줄을 추가하는 순간부터 `gap` 슬롯 재고가 되어 출제된다.
+- [x] 멀티모듈에서 Feature를 `api`와 `impl`로 나눈 이유는 무엇인가 — HIL-001
+- [x] 별도 `:navigation` 모듈을 만들지 않기로 한 근거는 무엇인가 — HIL-002
+- [x] Convention Plugin을 Base·Capability·Composite·Quality로 나눈 기준은 무엇인가 — HIL-003
+- [x] 디자인 시스템 카탈로그를 Compose Multiplatform Web/WASM으로 만든 이유는 무엇인가 — HIL-004
+- [x] `designsystem`에 Android Framework 의존을 금지한 이유와 그 대가는 무엇인가 — HIL-005
+- [x] `@CatalogControls`를 실제 Composable이 아니라 별도 adapter에 붙인 이유는 무엇인가 — HIL-006
+- [x] Catalog Controls를 KSP 코드 생성으로 만든 이유와, 손으로 썼다면 무엇이 문제였는가 — HIL-007
+- [x] `docs/CONSTITUTION.md`부터 시작하는 문서 권위 순서를 정한 이유는 무엇인가 — HIL-008
+- [x] 에이전트 기반 개발에서 아키텍처 계약이 실제로 지켜지는지 어떻게 검증했는가 — HIL-009
+- [x] 이 프로젝트에서 가장 후회하는 결정과 가장 잘한 결정은 무엇인가 — HIL-010
+- [ ] Feature `impl` 간 직접 의존을 금지하고 다른 Feature의 `api`만 참조하게 한 이유는 무엇인가
+- [ ] `catalog:annotations`와 `catalog:processor`를 별도 모듈로 분리한 이유는 무엇인가
+- [ ] `app`이 `data`에 의존하는 예외를 컴파일 타임에 강제하려면 어떻게 해야 하는가
+- [ ] 공통 build 설정을 `subprojects {}` 대신 Convention Plugin으로 두면 무엇이 달라지는가
+- [ ] 전역 Modal과 Toast를 `app` 최상단에서 렌더링하도록 한 이유는 무엇인가
+- [ ] Navigation 3를 채택한 이유와 기존 Navigation Compose와 무엇이 다른가
+- [ ] MVI에서 Intent·State·Effect를 나누는 기준은 무엇이었는가
+- [ ] 오류를 어느 계층에서 무엇으로 변환하도록 정했고 그 근거는 무엇인가
+- [ ] AI 에이전트가 읽을 문서를 작업별 필수 읽기 표로 만든 이유는 무엇인가
+- [ ] 멀티모듈 도입 이후 빌드 시간은 어떻게 됐고 무엇으로 관리했는가
 
-서류는 통과하는데 면접에서 떨어지는 상황에서 가장 직접적으로 효과가 날 영역이므로, 체계가 자리 잡으면 우선순위를 높게 두는 것이 좋다.
+## project/consensus
+
+> [cau-spd-consensus-fe](https://github.com/i-meant-to-be/cau-spd-consensus-fe) — CI · NDK 채택 · 암호화 모듈
+
+- [x] 동형암호 연산을 서버가 아니라 클라이언트에서 수행하기로 한 이유는 무엇인가 — CNS-001
+- [x] C++ 라이브러리를 NDK로 크로스 컴파일할 때 부딪히는 문제를 어떻게 진단하고 우회했는가 — CNS-002
+- [x] 병렬 처리 방식을 벤치마크로 고른 과정과 결과는 어땠는가 — CNS-003
+- [x] JNI 전역 포인터로 SEAL 컨텍스트를 들고 있을 때의 위험과 대응은 무엇인가 — CNS-004
+- [x] CI에서 NDK와 AVD를 캐시하고 계측 테스트를 조건부로 실행한 이유는 무엇인가 — CNS-005
+- [x] `BuildConfig`에 구운 비밀 값의 한계는 무엇인가 — CNS-006
+- [x] 빌드 타입이나 flavor 대신 `local.properties` 플래그로 개발 모드를 나눈 이유는 무엇인가 — CNS-007
+- [x] 이 프로젝트에서 가장 후회하는 결정과 가장 잘한 결정은 무엇인가 — CNS-008
+- [ ] 외부 C++ 라이브러리를 소스째 vendoring하는 것과 submodule·prebuilt·FetchContent는 어떻게 다른가
+- [ ] JNI 경계에서 값을 바이트 배열로 넘기는 것과 네이티브 핸들을 넘기는 것은 어떻게 다른가
+- [ ] JNI에서 C++ 예외와 배열 참조 해제는 어떻게 다뤄야 하는가
+- [ ] 동형암호 파라미터는 보안 수준과 곱셈 깊이를 어떻게 저울질해 고르는가
+- [ ] Android의 16KB 페이지 크기 전환은 네이티브 라이브러리에 무엇을 요구하는가
+- [ ] 네이티브 라이브러리와 JNI가 있는 앱에서 R8을 켜면 무엇을 주의해야 하는가
+- [ ] 네이티브 크래시는 어떤 도구로 어떻게 추적하는가
+
+## project/cau-capstone
+
+> [Team-Nine-O-One/frontend](https://github.com/Team-Nine-O-One/frontend) — Proto DataStore 컴포지트 패턴 · Naver Map SDK 직접 사용
+
+- [x] 트리 구조 데이터를 protobuf로 모델링할 때 Leaf와 Group을 어떻게 나누는가 — CAP-001
+- [x] 저장소 생성 타입을 도메인 모델로 그대로 쓰면 어떤 문제가 생기는가 — CAP-002
+- [x] Proto DataStore를 SharedPreferences·Preferences DataStore·Room 대신 고른 기준은 무엇인가 — CAP-003
+- [x] 제3자 래퍼 라이브러리를 걷어내고 공식 SDK를 직접 쓰기로 한 이유는 무엇인가 — CAP-004
+- [x] 외부 라이브러리 대신 SDK를 직접 감싸면 무엇을 얻고 무엇을 잃는가 — CAP-005
+- [x] 이 프로젝트에서 가장 후회하는 결정과 가장 잘한 결정은 무엇인가 — CAP-006
+- [ ] protobuf `lite` 런타임은 무엇을 얻고 무엇을 포기하는가
+- [ ] DataStore가 쓰기마다 파일 전체를 다시 쓰는 구조는 언제 문제가 되는가
+- [ ] DataStore `Serializer`에서 `CorruptionException`이 던져지면 앱은 어떻게 되는가
+- [ ] Naver Maps의 `MapView`와 `MapFragment` 중 무엇을 언제 고르는가
+- [ ] `AndroidView`로 감싼 View의 생명주기는 어떻게 연결하고 어떻게 해제하는가
+- [ ] `PathOverlay`·`Marker` 같은 명령형 API를 Compose의 선언형 상태와 어떻게 맞추는가
+- [ ] `MapView`에 저장된 인스턴스 상태를 넘기지 않으면 무엇이 복원되지 않는가
