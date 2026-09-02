@@ -1,0 +1,20 @@
+{
+  "pending": null,
+  "sessions": [
+    {
+      "id": "2026-09-02-0258",
+      "status": "graded",
+      "opened": "2026-09-02",
+      "ids": [
+        "AND-022",
+        "CMP-001",
+        "DI-001",
+        "JK-001",
+        "ALG-003"
+      ],
+      "count": 5,
+      "graded": "2026-09-02",
+      "average": 2
+    }
+  ]
+}

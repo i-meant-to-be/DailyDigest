@@ -183,3 +183,19 @@ Context는 앱의 정보와 Android OS 기능에 접근하기 위한 일종의 �
 ## [AND-027] (실무) ProGuard/R8 난독화가 깨뜨릴 수 있는 코드는 어떤 것인가요?
 
 > (미작성)
+
+## [AND-028] (실무) Navigation 컴포넌트의 백스택은 어떻게 관리되며, 뒤로가기로 돌아오면 안 되는 화면은 어떻게 처리하나요?
+
+- NavController가 목적지(destination)를 스택(LIFO)으로 관리함. `startDestination`이 바닥에 깔리고, `navigate()`를 호출할 때마다 위에 쌓이며, 시스템 뒤로가기나 `popBackStack()`으로 pop됨
+- 스택이 비면 그래프가 종료되고 Activity가 닫힘
+- 뒤로가기로 돌아오면 안 되는 화면(스플래시, 로그인 등)은 이동과 동시에 이전 목적지를 스택에서 걷어내는 방식으로 처리함
+
+```kotlin
+navController.navigate("home") {
+    popUpTo("login") { inclusive = true }
+}
+```
+
+- `popUpTo`는 지정한 목적지까지 스택을 걷어내고, `inclusive = true`면 그 목적지 자신까지 함께 제거함. 로그인 → 홈 이동 시 로그인을 스택에서 지워 뒤로가기로 되돌아올 수 없게 만듦
+- 로그인 전체 흐름을 지우려면 `popUpTo(graph.startDestinationId)`처럼 그래프 시작점을 기준으로 잡거나, 인증 흐름을 중첩 그래프로 묶어 그래프 단위로 걷어냄
+- `launchSingleTop = true`는 같은 목적지가 스택 맨 위에 이미 있을 때 중복 push를 막음. 하단 탭 이동이나 버튼 연타로 같은 화면이 여러 장 쌓이는 것을 방지하는 용도

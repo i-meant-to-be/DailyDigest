@@ -35,14 +35,23 @@
       "difficulty": "실무",
       "title": "퀵 정렬의 최악 시간 복잡도는 언제 발생하며 어떻게 피하나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 1,
+      "gaps": [
+        "최악 시간 복잡도를 O(n)으로 답함 (정답 O(n^2)) — 몰라서 틀림",
+        "랜덤 피벗·median-of-three·introsort 등 실제 회피 기법을 전혀 모름",
+        "최악 조건에 '첫/마지막 원소를 피벗으로 쓸 때'라는 전제를 붙이지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 1
+        }
+      ]
     },
     "ALG-004": {
       "subject": "cs/algorithms",
@@ -1337,14 +1346,23 @@
       "difficulty": "실무",
       "title": "중위 표기 함수(infix function)란 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 2,
+      "gaps": [
+        "매개변수 1개 조건을 '피연산자 2개'로 잘못 알고 있음 — 리시버와 매개변수를 구분하지 못함",
+        "멤버 함수 또는 확장 함수여야 한다는 조건 누락",
+        "'피연산자'를 '연산자'로 부르는 용어 오용"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 2
+        }
+      ]
     },
     "JK-002": {
       "subject": "lang/java-kotlin",
@@ -1939,14 +1957,22 @@
       "difficulty": "기초",
       "title": "Activity의 생명주기 콜백은 어떤 순서로 호출되나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 1,
+      "gaps": [
+        "생명주기 콜백 이름을 하나도 대지 못함 — 몰라서 틀림",
+        "가려짐(onPause/onStop)과 파괴(onDestroy)를 구분하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 1
+        }
+      ]
     },
     "AND-023": {
       "subject": "platform/android",
@@ -2023,14 +2049,22 @@
       "difficulty": "기초",
       "title": "Recomposition은 무엇이고 `remember`는 그 안에서 어떤 역할을 하나요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 2,
+      "gaps": [
+        "존재하지 않는 'Decomposition' 단계를 확신 있게 말함 (실제는 Disposal)",
+        "remember는 보관만 하고 Recomposition을 유발하지 않는다는 핵심 구분을 빠뜨림 — 원문에는 적혀 있음, 알지만 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 2
+        }
+      ]
     },
     "CMP-002": {
       "subject": "platform/compose",
@@ -2317,14 +2351,22 @@
       "difficulty": "기초",
       "title": "의존성 주입이란 무엇이고 왜 중요한가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-02",
+      "last_graded": "2026-09-02",
+      "last_score": 3,
+      "gaps": [
+        "테스트 용이성(가짜 구현 주입)을 이득으로 언급하지 못함 — 몰라서 틀림에 가까움",
+        "'인터페이스에 의존한다'는 표현까지 도달하지 못하고 '사용법만 알면 된다'에서 멈춤"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 3
+        }
+      ]
     },
     "DI-002": {
       "subject": "platform/di",
@@ -2619,6 +2661,28 @@
       "last_score": null,
       "gaps": [],
       "history": []
+    },
+    "AND-028": {
+      "subject": "platform/android",
+      "difficulty": "실무",
+      "title": "Navigation 컴포넌트의 백스택은 어떻게 관리되며, 뒤로가기로 돌아오면 안 되는 화면은 어떻게 처리하나요?",
+      "answered": true,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-09-02",
+      "last_score": 3,
+      "gaps": [
+        "스택 동작은 정확히 아는데 popUpTo/inclusive라는 API 용어를 쓰지 못함 — 알지만 설명하지 못함",
+        "launchSingleTop과 중첩 그래프 단위 pop을 언급하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-02",
+          "score": 3
+        }
+      ]
     }
   }
 }
