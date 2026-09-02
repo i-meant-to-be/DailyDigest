@@ -10,17 +10,20 @@
   "difficulty_floor": { "기초": 1, "실무": 2 },
   "difficulty_cap": { "기초": 3, "심화": 2 },
 
-  "_subject_weight": "과목별 출제 비중. 뒤에 /*를 붙이면 하위 경로 전체에 적용된다.",
+  "_subject_weight": "과목별 출제 비중. 뒤에 /*를 붙이면 하위 경로 전체에 적용된다. project/*는 실제 작업한 저장소 기반 문항으로 합계 0.15를 쓰고, 나머지 과목은 기존 비율을 유지한 채 0.85로 비례 축소했다.",
   "subject_weight": {
-    "platform/*": 0.40,
-    "lang/java-kotlin": 0.15,
-    "lang/c-cpp": 0.05,
-    "cs/os": 0.08,
-    "cs/network": 0.07,
-    "cs/design": 0.06,
-    "cs/database": 0.04,
-    "cs/data-structures": 0.08,
-    "cs/algorithms": 0.07
+    "platform/*": 0.34,
+    "lang/java-kotlin": 0.13,
+    "lang/c-cpp": 0.04,
+    "cs/os": 0.07,
+    "cs/network": 0.06,
+    "cs/design": 0.05,
+    "cs/database": 0.03,
+    "cs/data-structures": 0.07,
+    "cs/algorithms": 0.06,
+    "project/hilit": 0.07,
+    "project/consensus": 0.04,
+    "project/cau-capstone": 0.04
   },
 
   "_cooldown_days": "최근 이 일수 안에 출제된 문항은 제외한다. 후보가 모자라면 무시하고 오래된 순으로 채운다.",

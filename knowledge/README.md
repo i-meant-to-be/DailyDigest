@@ -34,6 +34,9 @@
 | `CMP` | `platform/compose.md` |
 | `DI` | `platform/di.md` |
 | `SEC` | `platform/security.md` |
+| `HIL` | `project/hilit.md` |
+| `CNS` | `project/consensus.md` |
+| `CAP` | `project/cau-capstone.md` |
 
 새 문항의 번호는 해당 접두사의 최댓값 다음을 쓴다. 삭제된 번호도 비워 둔 채 건너뛴다.
 
@@ -52,6 +55,7 @@
 - **Android vs Security** — 키 저장, 암호, 토큰, 인증 흐름은 `security.md`.
 - **os.md vs design.md** — 운영체제가 제공하는 메커니즘이면 `os.md`, 코드를 어떻게 구성할 것인가의 문제면 `design.md`.
 - **`cs/database.md`** — 과목 이름이지 저장 위치가 아니다. 상태 파일은 `state/`에 있다.
+- **`project/` vs 나머지** — 특정 저장소에서 내린 결정과 그 근거를 묻는 문항이면 `project/`에 둔다. 그 저장소를 몰라도 답할 수 있는 일반론이면 `cs/`·`lang/`·`platform/`에 둔다. 예를 들어 "멀티모듈에서 의존성 방향을 어떻게 관리하나"는 `platform/android.md`, "이 프로젝트에서 Feature를 api와 impl로 나눈 이유는"은 `project/hilit.md`다.
 
 ## 중복 처리
 

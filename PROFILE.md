@@ -42,11 +42,27 @@
 
 | 과목                                | 비중 |
 | ----------------------------------- | ---- |
-| Android / Compose / DI / Security   | 40%  |
-| Kotlin · Java                       | 20%  |
-| CS 기초 (OS · 네트워크 · 설계 · DB) | 25%  |
-| 자료구조 · 알고리즘                 | 15%  |
+| Android / Compose / DI / Security   | 34%  |
+| 프로젝트 기반 (실제 작업한 저장소)  | 15%  |
+| Kotlin · Java                       | 17%  |
+| CS 기초 (OS · 네트워크 · 설계 · DB) | 21%  |
+| 자료구조 · 알고리즘                 | 13%  |
+
+프로젝트 기반 15%를 새로 넣으면서 나머지는 기존 비율을 유지한 채 0.85로 비례 축소했다.
+실제 수치는 `config/digest.config.json`의 `subject_weight`가 기준이다.
+
+## 프로젝트 기반 출제
+
+실제 작업한 저장소 세 곳을 과목으로 편입했다. 최신순이며 뒤로 갈수록 작업이 얕다.
+
+| 과목 | 저장소 | 이력서 서술 (교정 후) | 비중 |
+| --- | --- | --- | --- |
+| `project/hilit` | [Hilit-Android](https://github.com/Team-Hilit/Hilit-Android) | 멀티모듈 아키텍처 준비 / 디자인 시스템 카탈로그 구현 / AI 에이전트 기반 조성 | 7% |
+| `project/consensus` | [cau-spd-consensus-fe](https://github.com/i-meant-to-be/cau-spd-consensus-fe) | CI 파이프라인 구축(NDK·AVD 캐싱, 조건부 계측 테스트) / C++ 기반 FHE 라이브러리 사용을 위한 NDK 채택 / 암호화 모듈 작성 | 4% |
+| `project/cau-capstone` | [Team-Nine-O-One/frontend](https://github.com/Team-Nine-O-One/frontend) | Proto DataStore로 컴포지트 패턴 데이터 저장 / 제3자 지도 래퍼를 걷어내고 Naver Maps SDK를 직접 Compose로 감쌈 | 4% |
+
+주제는 프로젝트마다 (a) 채택한 구조와 근거, (b) 검토했으나 버린 대안, (c) 면접관이 파고들 지점, (d) 지금 다시 설계한다면 바꿀 것의 네 축으로 뽑는다. (a)와 (c)는 저장소에서 뽑았고, **(b)와 (d)는 코드에 남지 않아** `docs/interview/`의 인터뷰 질문지로 받는다.
 
 ## 후속 작업
 
-실제 작업한 Git 저장소를 훑어 프로젝트별 예상 질문을 `knowledge/SYLLABUS.md`의 `## 프로젝트 기반` 섹션에 채운다. 프로젝트별로 (a) 채택한 구조와 근거, (b) 검토했으나 버린 대안, (c) 면접관이 파고들 지점, (d) 지금 다시 설계한다면 바꿀 것.
+`docs/interview/`의 세 질문지에 답을 채운다. 답이 들어오면 그 내용이 `knowledge/project/*.md`의 원문이 되고, 답이 없는 주제는 `SYLLABUS.md`에 공백으로 남아 `gap` 슬롯이 출제한다.
