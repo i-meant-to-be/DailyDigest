@@ -1,5 +1,5 @@
 {
-  "pending": "2026-09-04-1801",
+  "pending": null,
   "sessions": [
     {
       "id": "2026-09-02-0258",
@@ -48,7 +48,7 @@
     },
     {
       "id": "2026-09-04-1801",
-      "status": "pending",
+      "status": "graded",
       "opened": "2026-09-04",
       "ids": [
         "CMP-022",
@@ -57,7 +57,9 @@
         "JK-003",
         "NET-001"
       ],
-      "count": 5
+      "count": 5,
+      "graded": "2026-09-04",
+      "average": 2
     }
   ]
 }

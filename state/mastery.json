@@ -856,14 +856,23 @@
       "difficulty": "기초",
       "title": "TCP와 UDP는 무엇이고 어떤 차이가 있나요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
       "last_asked": "2026-09-04",
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_graded": "2026-09-04",
+      "last_score": 3,
+      "gaps": [
+        "전송 계층(4계층) 프로토콜이라는 계층 규정을 첫 문장에서 말하지 못함",
+        "재전송·순서 보장·흐름 제어·혼잡 제어를 '정책이 빡빡하다'로 뭉뚱그림 — 개념은 아는데 용어를 못 부름",
+        "QUIC/HTTP3 동향을 반대로 알고 있음(UDP 기반으로 옮겨가는 흐름을 'TCP로 몰린다'고 설명)"
+      ],
+      "history": [
+        {
+          "date": "2026-09-04",
+          "score": 3
+        }
+      ]
     },
     "NET-002": {
       "subject": "cs/network",
@@ -1391,14 +1400,23 @@
       "difficulty": "기초",
       "title": "`val`과 `var`의 차이는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
       "last_asked": "2026-09-04",
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_graded": "2026-09-04",
+      "last_score": 3,
+      "gaps": [
+        "읽기 전용 List와 MutableList를 구분하지 못하고 val List에 add가 된다고 예시를 듦",
+        "커스텀 getter를 가진 val, const val과의 차이를 모름",
+        "val을 'getter만 있다'로 정의하지 못하고 '재할당 불가'에서 멈춤"
+      ],
+      "history": [
+        {
+          "date": "2026-09-04",
+          "score": 3
+        }
+      ]
     },
     "JK-004": {
       "subject": "lang/java-kotlin",
@@ -1693,14 +1711,22 @@
       "difficulty": "기초",
       "title": "`Activity`와 `Fragment`의 차이는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
       "last_asked": "2026-09-04",
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_graded": "2026-09-04",
+      "last_score": 0,
+      "gaps": [
+        "지식 파일에 본인 답이 정리돼 있는데도 '모름'으로 답함 — 몰라서가 아니라 꺼내지 못함",
+        "단일 Activity + 여러 Fragment 구성을 고르는 판단 기준을 말하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-04",
+          "score": 0
+        }
+      ]
     },
     "AND-003": {
       "subject": "platform/android",
@@ -2442,14 +2468,24 @@
       "difficulty": "실무",
       "title": "Hilt의 컴포넌트 스코프에는 어떤 것들이 있고 각각 언제 쓰나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
       "last_asked": "2026-09-04",
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_graded": "2026-09-04",
+      "last_score": 2,
+      "gaps": [
+        "ViewModelScoped/FragmentScoped/ServiceScoped 등 절반 이상의 스코프를 모름",
+        "컴포넌트와 스코프가 짝이라는 구조를 모르고 스코프만 나열함",
+        "ActivityRetainedScoped를 'onDestroy가 불리지 않는 한'으로 반대로 설명함",
+        "스코프가 기본값이 아니며 미지정 시 매번 새 인스턴스라는 선택 기준을 말하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-04",
+          "score": 2
+        }
+      ]
     },
     "DI-005": {
       "subject": "platform/di",
@@ -3121,20 +3157,48 @@
       "difficulty": "실무",
       "title": "Jetpack Compose에서 커스텀 레이아웃을 직접 구현할 때 측정과 배치는 어떤 순서로 이루어지며, 어떤 제약을 지켜야 하나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
       "last_asked": "2026-09-04",
       "last_graded": "2026-09-04",
-      "last_score": 1,
+      "last_score": 2,
       "gaps": [
-        "부모가 제약을 내려보내고 자식이 크기를 반환한 뒤 부모가 배치하는 측정 흐름을 반대로 설명함",
-        "자식은 한 번만 측정해야 한다는 제약과 Constraints 범위 준수를 모름"
+        "측정 흐름 방향은 교정됨 — 지난 지적 해소",
+        "Placeable을 '가능한 공간'이라 하여 Constraints와 역할을 바꿔 말함",
+        "질문 후반부인 '지켜야 할 제약'에 전혀 답하지 못함 — 자식 1회 측정, layout 크기의 Constraints 범위 준수, intrinsic measurement 모두 누락"
       ],
       "history": [
         {
           "date": "2026-09-04",
           "score": 1
+        },
+        {
+          "date": "2026-09-04",
+          "score": 2
+        }
+      ]
+    },
+    "CMP-023": {
+      "subject": "platform/compose",
+      "difficulty": "실무",
+      "title": "Compose의 여러 애니메이션 API 중 무엇을 언제 고르나요?",
+      "answered": false,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-09-04",
+      "last_score": 2,
+      "gaps": [
+        "updateTransition을 모름 — 여러 값을 한 상태 전이에 묶는 용도",
+        "Animatable을 코루틴 기반 저수준 값 홀더로 설명하지 못하고 동어반복함",
+        "API를 나열만 하고 선택 기준(값 개수 / 제어권 / 정형 패턴)을 제시하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-04",
+          "score": 2
         }
       ]
     }
