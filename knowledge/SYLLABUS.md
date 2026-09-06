@@ -259,7 +259,7 @@
 - [x] Dagger가 컴파일 시점에 의존성 그래프를 검증한다는 것은 무슨 뜻인가요 — DI-007
 - [x] 테스트에서 의존성을 가짜 구현으로 바꾸려면 어떻게 하나요 — DI-008
 - [x] 같은 타입의 의존성을 여러 개 제공해야 할 때는 어떻게 하나요 — DI-009
-- [ ] Assisted Injection이 필요한 경우
+- [x] Assisted Injection이 필요한 경우 — DI-010
 - [ ] Hilt 없이 Dagger만 쓸 때의 차이
 
 ## platform/security
