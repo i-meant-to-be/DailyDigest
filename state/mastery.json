@@ -1373,19 +1373,22 @@
       "title": "중위 표기 함수(infix function)란 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-02",
-      "last_graded": "2026-09-02",
+      "last_asked": "2026-09-06",
+      "last_graded": "2026-09-06",
       "last_score": 2,
       "gaps": [
-        "매개변수 1개 조건을 '피연산자 2개'로 잘못 알고 있음 — 리시버와 매개변수를 구분하지 못함",
-        "멤버 함수 또는 확장 함수여야 한다는 조건 누락",
-        "'피연산자'를 '연산자'로 부르는 용어 오용"
+        "infix 키워드와 멤버 또는 확장 함수라는 선언 조건을 다시 누락함",
+        "리시버와 매개변수의 타입이 같아야 한다는 존재하지 않는 제약을 말함"
       ],
       "history": [
         {
           "date": "2026-09-02",
+          "score": 2
+        },
+        {
+          "date": "2026-09-06",
           "score": 2
         }
       ]
@@ -1742,14 +1745,23 @@
       "difficulty": "기초",
       "title": "`Context`란 무엇이고 종류별로 어떤 차이가 있나요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-06",
+      "last_graded": "2026-09-06",
+      "last_score": 1,
+      "gaps": [
+        "Context를 OS 기능 접근 인터페이스가 아니라 데이터와 상태 저장소로 잘못 이해함",
+        "장기 객체가 Activity Context를 붙잡을 때 누수가 생기는 참조 방향을 반대로 설명함",
+        "Activity Context가 필요한 테마·창 기반 UI 사용처를 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-06",
+          "score": 1
+        }
+      ]
     },
     "AND-004": {
       "subject": "platform/android",
@@ -2105,19 +2117,23 @@
       "title": "Recomposition은 무엇이고 `remember`는 그 안에서 어떤 역할을 하나요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-02",
-      "last_graded": "2026-09-02",
-      "last_score": 2,
+      "last_asked": "2026-09-06",
+      "last_graded": "2026-09-06",
+      "last_score": 3,
       "gaps": [
-        "존재하지 않는 'Decomposition' 단계를 확신 있게 말함 (실제는 Disposal)",
-        "remember는 보관만 하고 Recomposition을 유발하지 않는다는 핵심 구분을 빠뜨림 — 원문에는 적혀 있음, 알지만 설명하지 못함"
+        "remember가 보관만 하고 MutableState의 관찰성과 Recomposition 유발에는 관여하지 않는다는 역할 구분이 여전히 불명확함",
+        "상태 읽기 추적과 재구성 범위 무효화 대신 트리를 내려가며 대상을 찾는다고 부정확하게 설명함"
       ],
       "history": [
         {
           "date": "2026-09-02",
           "score": 2
+        },
+        {
+          "date": "2026-09-06",
+          "score": 3
         }
       ]
     },
@@ -2423,18 +2439,22 @@
       "title": "의존성 주입이란 무엇이고 왜 중요한가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-02",
-      "last_graded": "2026-09-02",
+      "last_asked": "2026-09-06",
+      "last_graded": "2026-09-06",
       "last_score": 3,
       "gaps": [
-        "테스트 용이성(가짜 구현 주입)을 이득으로 언급하지 못함 — 몰라서 틀림에 가까움",
-        "'인터페이스에 의존한다'는 표현까지 도달하지 못하고 '사용법만 알면 된다'에서 멈춤"
+        "의존성 주입과 인터페이스 분리를 같은 개념처럼 설명함",
+        "저장소 패턴을 데이터 소스 인터페이스와 구현체의 단순 분리로 부정확하게 정의함"
       ],
       "history": [
         {
           "date": "2026-09-02",
+          "score": 3
+        },
+        {
+          "date": "2026-09-06",
           "score": 3
         }
       ]
@@ -2592,14 +2612,22 @@
       "difficulty": "실무",
       "title": "Android KeyStore는 무엇을 보장하며 일반 저장소와 무엇이 다른가요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-06",
+      "last_graded": "2026-09-06",
+      "last_score": 2,
+      "gaps": [
+        "키 비추출성은 알지만 사용 조건 강제와 선택적 하드웨어 보호를 설명하지 못함",
+        "KeyStore가 키 사용 권한을 가진 앱 코드의 악용까지 막는다고 위협 모델을 잘못 설명함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-06",
+          "score": 2
+        }
+      ]
     },
     "SEC-002": {
       "subject": "platform/security",
@@ -3250,6 +3278,29 @@
         {
           "date": "2026-09-06",
           "score": 0
+        }
+      ]
+    },
+    "SEC-015": {
+      "subject": "platform/security",
+      "difficulty": "실무",
+      "title": "운영 환경의 로그에 남기면 안 되는 정보에는 무엇이 있으며, 필요한 진단 정보는 어떤 원칙으로 기록해야 하나요?",
+      "answered": false,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-09-06",
+      "last_score": 2,
+      "gaps": [
+        "토큰·인증 헤더·세션 식별자 등 계정 탈취로 이어지는 로그 금지 항목 누락",
+        "허용 목록·접근 권한·보존 기간 등 운영 로그 관리 원칙을 설명하지 못함",
+        "모든 관련 타입의 toString 재정의를 필수라고 과도하게 단정함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-06",
+          "score": 2
         }
       ]
     }
