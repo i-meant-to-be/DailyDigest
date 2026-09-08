@@ -279,7 +279,7 @@
 - [x] 생체 인증은 어떻게 KeyStore와 연동되나요 — SEC-013
 - [x] 앱 서명 키는 어떻게 관리하는가 — SEC-014
 - [x] 로그에 무엇을 남기면 안 되는가 — SEC-015
-- [ ] ProGuard 규칙과 보안의 관계
+- [x] ProGuard 규칙과 보안의 관계 — SEC-016
 
 ## project/hilit
 
