@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-09",
+  "updated_at": "2026-09-10",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -1831,14 +1831,23 @@
       "difficulty": "기초",
       "title": "ViewModel의 역할은 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-10",
+      "last_graded": "2026-09-10",
+      "last_score": 3,
+      "gaps": [
+        "ViewModel이 맡지 말아야 할 UI 동작 로직과 Context·View 같은 수명 주기 종속 객체의 경계를 구체화하지 못함 — 알지만 설명하지 못함",
+        "ViewModelStore가 데이터를 별도로 보관하는 것이 아니라 ViewModel 인스턴스를 유지한다는 점을 부정확하게 표현함 — 몰라서 틀림",
+        "구성 변경 생존과 프로세스 종료 후 복원을 구분하지 못함 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-10",
+          "score": 3
+        }
+      ]
     },
     "AND-009": {
       "subject": "platform/android",
@@ -2382,14 +2391,23 @@
       "difficulty": "실무",
       "title": "Composable 함수의 Skippable과 Stable은 무엇을 의미하나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-10",
+      "last_graded": "2026-09-10",
+      "last_score": 1,
+      "gaps": [
+        "Stable을 타입의 변경 추적 가능성 계약이 아니라 상태 변화의 영향을 받지 않는 Composable로 잘못 이해함 — 몰라서 틀림",
+        "Skippable을 이전 호출과 입력이 같은 함수의 실행 생략이 아니라 출력이 같을 때의 자동 생략으로 잘못 이해함 — 몰라서 틀림",
+        "입력값이 2에서 1로 바뀌면 출력 색이 같아도 Compose가 이를 자동 판별해 건너뛰지는 않는다는 점을 모름 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-10",
+          "score": 1
+        }
+      ]
     },
     "CMP-018": {
       "subject": "platform/compose",
@@ -2551,21 +2569,24 @@
       "difficulty": "실무",
       "title": "`@Singleton`으로 선언한 객체는 실제로 언제 생성되고 언제 해제되나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-06",
-      "last_graded": "2026-09-06",
-      "last_score": 1,
+      "last_asked": "2026-09-10",
+      "last_graded": "2026-09-10",
+      "last_score": 2,
       "gaps": [
-        "컴포넌트 생성과 바인딩 최초 요청에 따른 객체 생성을 혼동",
-        "동일 컴포넌트의 공유 범위를 모든 코드로 일반화",
-        "참조 유지와 GC 및 프로세스 종료에 따른 회수를 구분하지 못함"
+        "SingletonComponent 생성과 scoped 객체의 최초 요청 생성을 구분해 설명하지 못함 — 알지만 설명하지 못함",
+        "컴포넌트가 @Singleton 인스턴스를 보유한다는 점을 놓쳐 일반 참조자가 사라지면 회수된다고 잘못 설명함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-09-06",
           "score": 1
+        },
+        {
+          "date": "2026-09-10",
+          "score": 2
         }
       ]
     },
@@ -2718,19 +2739,24 @@
       "title": "대칭키와 비대칭키 암호는 각각 언제 쓰나요?",
       "answered": false,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-02",
-      "last_graded": "2026-09-02",
-      "last_score": 3,
+      "last_asked": "2026-09-10",
+      "last_graded": "2026-09-10",
+      "last_score": 2,
       "gaps": [
-        "하이브리드 구조(비대칭키로 세션키 교환 후 대칭키로 데이터 암호화)를 언급 못함 — 몰라서 틀림",
-        "비대칭키의 서명/검증 용도 누락, 알고리즘 이름(AES/RSA/ECDH) 없음 — 알지만 이름을 못 붙임"
+        "대칭키 배포 설명에서 비대칭키라고 쓰고 대칭키를 키 쌍으로 표현하는 등 키 종류를 일관되게 구분하지 못함 — 알지만 설명하지 못함",
+        "전자 서명을 공개키 복호화로 설명했지만 실제 역할은 서명값 검증이라는 점을 모름 — 몰라서 틀림",
+        "하이브리드 통신을 RSA 방식으로 한정하고 ECDHE 같은 키 합의와 AES·ChaCha20 같은 데이터 암호 알고리즘을 제시하지 못함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-09-02",
           "score": 3
+        },
+        {
+          "date": "2026-09-10",
+          "score": 2
         }
       ]
     },
@@ -3292,19 +3318,24 @@
       "difficulty": "실무",
       "title": "Assisted Injection은 언제 필요하며 생성자와 팩터리는 어떤 역할을 하나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-06",
-      "last_graded": "2026-09-06",
-      "last_score": 0,
+      "last_asked": "2026-09-10",
+      "last_graded": "2026-09-10",
+      "last_score": 3,
       "gaps": [
-        "Assisted Injection의 목적과 생성자·팩터리 역할을 모름 — 명시적으로 모른다고 응답"
+        "@AssistedInject 생성자에서 일반 의존성은 Dagger가, @Assisted 값은 호출자가 제공한다는 결합 구조를 명시하지 못함 — 알지만 설명하지 못함",
+        "@AssistedFactory 구현을 직접 작성하는 것처럼 표현해 Dagger가 생성한 팩터리를 주입받는 흐름이 모호함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-09-06",
           "score": 0
+        },
+        {
+          "date": "2026-09-10",
+          "score": 3
         }
       ]
     },
@@ -3350,6 +3381,29 @@
         {
           "date": "2026-09-09",
           "score": 3
+        }
+      ]
+    },
+    "CMP-024": {
+      "subject": "platform/compose",
+      "difficulty": "실무",
+      "title": "Compose 화면의 끊김이나 과도한 재구성이 의심될 때 성능 문제를 어떻게 측정하고 원인을 좁히나요?",
+      "answered": false,
+      "status": "wrong",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-09-10",
+      "last_score": 1,
+      "gaps": [
+        "재구성 횟수를 화면 끊김의 성능 지표와 동일시해 프레임 시간과 jank를 측정하지 못함 — 몰라서 틀림",
+        "출시 빌드에 가까운 환경과 실제 기기에서 Macrobenchmark·FrameTimingMetric·시스템 트레이스로 기준선을 잡는 방법을 모름 — 몰라서 틀림",
+        "추적 결과로 병목을 찾기 전에 key를 원인으로 추측해 개선 전후 반복 측정 절차가 부족함 — 알지만 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-10",
+          "score": 1
         }
       ]
     }
