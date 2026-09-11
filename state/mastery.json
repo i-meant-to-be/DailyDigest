@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-10",
+  "updated_at": "2026-09-11",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -861,19 +861,22 @@
       "title": "TCP와 UDP는 무엇이고 어떤 차이가 있나요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-04",
-      "last_graded": "2026-09-04",
+      "last_asked": "2026-09-11",
+      "last_graded": "2026-09-11",
       "last_score": 3,
       "gaps": [
-        "전송 계층(4계층) 프로토콜이라는 계층 규정을 첫 문장에서 말하지 못함",
-        "재전송·순서 보장·흐름 제어·혼잡 제어를 '정책이 빡빡하다'로 뭉뚱그림 — 개념은 아는데 용어를 못 부름",
-        "QUIC/HTTP3 동향을 반대로 알고 있음(UDP 기반으로 옮겨가는 흐름을 'TCP로 몰린다'고 설명)"
+        "UDP가 항상 빠르다고 단정하고 헤더·설정 비용과 애플리케이션 구현 비용의 조건을 구분하지 못함 — 알지만 설명하지 못함",
+        "QUIC이 신뢰성·혼잡 제어·TLS·다중 스트림을 제공하며 UDP를 택한 배포상 이유를 설명하지 못함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-09-04",
+          "score": 3
+        },
+        {
+          "date": "2026-09-11",
           "score": 3
         }
       ]
@@ -1435,14 +1438,23 @@
       "difficulty": "기초",
       "title": "Java와 Kotlin의 차이점은 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-11",
+      "last_graded": "2026-09-11",
+      "last_score": 2,
+      "gaps": [
+        "Kotlin/JVM이 Java 소스를 거치지 않고 JVM 바이트코드로 직접 컴파일된다는 점을 틀림 — 몰라서 틀림",
+        "Java의 참조 타입과 원시 타입의 null 가능성을 구분하지 못함 — 몰라서 틀림",
+        "코루틴을 중단 가능한 작업의 추상화로 설명하지 못했고 Kotlin의 상용구 감소 사례를 누락함 — 알지만 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-11",
+          "score": 2
+        }
+      ]
     },
     "JK-005": {
       "subject": "lang/java-kotlin",
@@ -2471,14 +2483,14 @@
       "title": "의존성 주입이란 무엇이고 왜 중요한가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 2,
+      "attempts": 3,
       "streak": 0,
-      "last_asked": "2026-09-06",
-      "last_graded": "2026-09-06",
+      "last_asked": "2026-09-11",
+      "last_graded": "2026-09-11",
       "last_score": 3,
       "gaps": [
-        "의존성 주입과 인터페이스 분리를 같은 개념처럼 설명함",
-        "저장소 패턴을 데이터 소스 인터페이스와 구현체의 단순 분리로 부정확하게 정의함"
+        "저장소 패턴을 데이터 출처를 감추는 일관된 접근 계약으로 별도 정의하지 못함 — 알지만 설명하지 못함",
+        "DI만으로 모든 결합도가 낮아진다고 과도하게 일반화해 생성 결합과 구현 결합을 구분하지 못함 — 알지만 설명하지 못함"
       ],
       "history": [
         {
@@ -2487,6 +2499,10 @@
         },
         {
           "date": "2026-09-06",
+          "score": 3
+        },
+        {
+          "date": "2026-09-11",
           "score": 3
         }
       ]
@@ -2710,14 +2726,23 @@
       "difficulty": "실무",
       "title": "OAuth 2.0 인가 코드 흐름을 단계별로 설명해 주세요.",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-11",
+      "last_graded": "2026-09-11",
+      "last_score": 1,
+      "gaps": [
+        "인가 코드 대신 액세스 토큰이 앱으로 바로 돌아온다고 설명해 인가 코드 흐름을 모름 — 몰라서 틀림",
+        "PKCE의 code_verifier·code_challenge와 코드 가로채기 방지 원리를 모름 — 몰라서 틀림",
+        "네이티브 앱의 고정 클라이언트 비밀은 신원 증명 수단이 될 수 없음을 모름 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-11",
+          "score": 1
+        }
+      ]
     },
     "SEC-005": {
       "subject": "platform/security",
@@ -3389,21 +3414,47 @@
       "difficulty": "실무",
       "title": "Compose 화면의 끊김이나 과도한 재구성이 의심될 때 성능 문제를 어떻게 측정하고 원인을 좁히나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": "2026-09-10",
-      "last_score": 1,
+      "last_asked": "2026-09-11",
+      "last_graded": "2026-09-11",
+      "last_score": 2,
       "gaps": [
-        "재구성 횟수를 화면 끊김의 성능 지표와 동일시해 프레임 시간과 jank를 측정하지 못함 — 몰라서 틀림",
-        "출시 빌드에 가까운 환경과 실제 기기에서 Macrobenchmark·FrameTimingMetric·시스템 트레이스로 기준선을 잡는 방법을 모름 — 몰라서 틀림",
-        "추적 결과로 병목을 찾기 전에 key를 원인으로 추측해 개선 전후 반복 측정 절차가 부족함 — 알지만 설명하지 못함"
+        "재구성 빈도와 사용자 체감 jank를 구분했지만 Macrobenchmark·FrameTimingMetric으로 기준선을 잡는 방법을 설명하지 못함 — 알지만 설명하지 못함",
+        "실제 기기에서 시스템 추적으로 병목을 찾고 같은 조건에서 개선 전후를 반복 측정하는 절차가 구체적이지 않음 — 알지만 설명하지 못함"
       ],
       "history": [
         {
           "date": "2026-09-10",
           "score": 1
+        },
+        {
+          "date": "2026-09-11",
+          "score": 2
+        }
+      ]
+    },
+    "AND-029": {
+      "subject": "platform/android",
+      "difficulty": "실무",
+      "title": "Android 앱에서 웹 URL 딥링크를 안전하게 받아 올바른 화면으로 연결하려면 어떻게 구성하나요?",
+      "answered": false,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-09-11",
+      "last_score": 2,
+      "gaps": [
+        "일반 딥링크와 assetlinks.json으로 도메인 소유권을 검증한 Android App Link의 차이를 모름 — 몰라서 틀림",
+        "매니페스트 intent-filter 범위 제한과 인증·권한을 포함한 외부 입력 검증 절차가 부족함 — 알지만 설명하지 못함",
+        "진입 맥락에 따라 합성 백 스택과 기존 작업 재사용을 선택하는 기준을 설명하지 못함 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-11",
+          "score": 2
         }
       ]
     }
