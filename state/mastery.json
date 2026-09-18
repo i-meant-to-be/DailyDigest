@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-11",
+  "updated_at": "2026-09-18",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -1055,15 +1055,14 @@
       "title": "프로세스와 스레드의 차이는 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 2,
+      "attempts": 3,
       "streak": 0,
-      "last_asked": "2026-09-06",
-      "last_graded": "2026-09-06",
+      "last_asked": "2026-09-18",
+      "last_graded": "2026-09-18",
       "last_score": 2,
       "gaps": [
-        "PCB를 주소 공간 포인터로 오인 — 지난 개념 오류 미해결",
-        "프로세스의 작업 분배와 OS의 스레드 스케줄링을 혼동",
-        "스레드별 프로그램 카운터·레지스터 설명 누락"
+        "코드와 전역 데이터 공유 범위를 같은 프로세스의 스레드 사이로 한정하지 못함 — 알지만 설명하지 못함",
+        "PCB를 커널이 관리하는 자료구조가 아니라 프로세스 영역에 포함된 데이터로 잘못 설명함 — 몰라서 틀림"
       ],
       "history": [
         {
@@ -1072,6 +1071,10 @@
         },
         {
           "date": "2026-09-06",
+          "score": 2
+        },
+        {
+          "date": "2026-09-18",
           "score": 2
         }
       ]
@@ -1461,14 +1464,23 @@
       "difficulty": "기초",
       "title": "`data class`란 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-18",
+      "last_graded": "2026-09-18",
+      "last_score": 2,
+      "gaps": [
+        "toString과 componentN 자동 생성을 누락하고 주 생성자 속성만 생성 함수에 참여한다는 점을 설명하지 못함 — 알지만 설명하지 못함",
+        "일반 클래스의 equals가 해시 코드로 비교한다고 잘못 설명함 — 몰라서 틀림",
+        "copy가 얕은 복사라는 점과 정확한 선언 제약을 설명하지 못함 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-18",
+          "score": 2
+        }
+      ]
     },
     "JK-006": {
       "subject": "lang/java-kotlin",
@@ -1829,14 +1841,23 @@
       "difficulty": "실무",
       "title": "Android 아키텍처 권장사항에 대해 설명해 주세요.",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-18",
+      "last_graded": "2026-09-18",
+      "last_score": 2,
+      "gaps": [
+        "권장 계층 아키텍처를 멀티 모듈 구성과 혼동하고 UI·데이터·선택적 도메인 계층의 책임을 구분하지 못함 — 몰라서 틀림",
+        "단일 진실 공급원을 무조건 클라우드로 예시하여 데이터 수정 권한을 가진 유일한 소스라는 기준을 설명하지 못함 — 몰라서 틀림",
+        "계층 간 Flow와 suspend 함수의 사용 계약을 구체적으로 설명하지 못함 — 알지만 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-09-18",
+          "score": 2
+        }
+      ]
     },
     "AND-008": {
       "subject": "platform/android",
@@ -2403,21 +2424,24 @@
       "difficulty": "실무",
       "title": "Composable 함수의 Skippable과 Stable은 무엇을 의미하나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-10",
-      "last_graded": "2026-09-10",
-      "last_score": 1,
+      "last_asked": "2026-09-18",
+      "last_graded": "2026-09-18",
+      "last_score": 2,
       "gaps": [
-        "Stable을 타입의 변경 추적 가능성 계약이 아니라 상태 변화의 영향을 받지 않는 Composable로 잘못 이해함 — 몰라서 틀림",
-        "Skippable을 이전 호출과 입력이 같은 함수의 실행 생략이 아니라 출력이 같을 때의 자동 생략으로 잘못 이해함 — 몰라서 틀림",
-        "입력값이 2에서 1로 바뀌면 출력 색이 같아도 Compose가 이를 자동 판별해 건너뛰지는 않는다는 점을 모름 — 몰라서 틀림"
+        "Stable을 변경 추적 가능성 계약이 아니라 재구성이 필요 없는 경우로 잘못 설명함 — 몰라서 틀림",
+        "Skippable의 매개변수 비교 조건과 강한 건너뛰기 모드의 비교 방식을 설명하지 못함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-09-10",
           "score": 1
+        },
+        {
+          "date": "2026-09-18",
+          "score": 2
         }
       ]
     },
@@ -2727,19 +2751,23 @@
       "title": "OAuth 2.0 인가 코드 흐름을 단계별로 설명해 주세요.",
       "answered": false,
       "status": "wrong",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-11",
-      "last_graded": "2026-09-11",
+      "last_asked": "2026-09-18",
+      "last_graded": "2026-09-18",
       "last_score": 1,
       "gaps": [
-        "인가 코드 대신 액세스 토큰이 앱으로 바로 돌아온다고 설명해 인가 코드 흐름을 모름 — 몰라서 틀림",
-        "PKCE의 code_verifier·code_challenge와 코드 가로채기 방지 원리를 모름 — 몰라서 틀림",
-        "네이티브 앱의 고정 클라이언트 비밀은 신원 증명 수단이 될 수 없음을 모름 — 몰라서 틀림"
+        "PKCE 인가 코드 흐름을 API 키와 서버 간 검증 흐름으로 잘못 설명함 — 몰라서 틀림",
+        "code_verifier와 code_challenge의 생성·검증 및 코드 가로채기 방지 원리를 모름 — 몰라서 틀림",
+        "배포 바이너리에 포함된 고정 비밀이 클라이언트 인증 수단이 될 수 없는 이유를 정확히 설명하지 못함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-09-11",
+          "score": 1
+        },
+        {
+          "date": "2026-09-18",
           "score": 1
         }
       ]
@@ -3455,6 +3483,29 @@
         {
           "date": "2026-09-11",
           "score": 2
+        }
+      ]
+    },
+    "AND-030": {
+      "subject": "platform/android",
+      "difficulty": "실무",
+      "title": "Android에서 런타임 권한이 필요한 기능을 실행하려 할 때, 권한 상태 확인부터 요청·거부·재요청·설정 화면 안내까지 어떤 흐름으로 처리해야 하나요?",
+      "answered": false,
+      "status": "wrong",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-09-18",
+      "last_score": 1,
+      "gaps": [
+        "shouldShowRequestPermissionRationale과 Activity Result API를 포함한 권한 요청 분기 흐름을 모름 — 몰라서 틀림",
+        "거부 횟수와 재요청 가능 여부를 고정된 1회 규칙으로 잘못 이해함 — 몰라서 틀림",
+        "최초 요청 전과 다시 묻지 않음 상태를 구분하려면 앱의 요청 이력도 필요하다는 점을 모름 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-09-18",
+          "score": 1
         }
       ]
     }
