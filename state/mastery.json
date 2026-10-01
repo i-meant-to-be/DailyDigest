@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-28",
+  "updated_at": "2026-10-01",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -861,14 +861,14 @@
       "title": "TCP와 UDP는 무엇이고 어떤 차이가 있나요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 2,
+      "attempts": 3,
       "streak": 0,
-      "last_asked": "2026-09-11",
-      "last_graded": "2026-09-11",
-      "last_score": 3,
+      "last_asked": "2026-09-28",
+      "last_graded": "2026-10-01",
+      "last_score": 2,
       "gaps": [
-        "UDP가 항상 빠르다고 단정하고 헤더·설정 비용과 애플리케이션 구현 비용의 조건을 구분하지 못함 — 알지만 설명하지 못함",
-        "QUIC이 신뢰성·혼잡 제어·TLS·다중 스트림을 제공하며 UDP를 택한 배포상 이유를 설명하지 못함 — 몰라서 틀림"
+        "TCP와 UDP가 기본 제공하는 제어 기능을 구체적으로 설명하지 못함",
+        "QUIC의 신뢰성·혼잡 제어·TLS·독립 스트림을 개발자 선택 사항으로 오해함"
       ],
       "history": [
         {
@@ -878,6 +878,10 @@
         {
           "date": "2026-09-11",
           "score": 3
+        },
+        {
+          "date": "2026-10-01",
+          "score": 2
         }
       ]
     },
@@ -1446,19 +1450,22 @@
       "title": "Java와 Kotlin의 차이점은 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-11",
-      "last_graded": "2026-09-11",
+      "last_asked": "2026-09-28",
+      "last_graded": "2026-10-01",
       "last_score": 2,
       "gaps": [
-        "Kotlin/JVM이 Java 소스를 거치지 않고 JVM 바이트코드로 직접 컴파일된다는 점을 틀림 — 몰라서 틀림",
-        "Java의 참조 타입과 원시 타입의 null 가능성을 구분하지 못함 — 몰라서 틀림",
-        "코루틴을 중단 가능한 작업의 추상화로 설명하지 못했고 Kotlin의 상용구 감소 사례를 누락함 — 알지만 설명하지 못함"
+        "JVM 바이트코드 컴파일 경로와 상용구 감소의 대표 사례를 설명하지 못함",
+        "코루틴과 스레드의 관계를 정확히 구분하지 못함"
       ],
       "history": [
         {
           "date": "2026-09-11",
+          "score": 2
+        },
+        {
+          "date": "2026-10-01",
           "score": 2
         }
       ]
@@ -1891,14 +1898,22 @@
       "difficulty": "기초",
       "title": "UI State란 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-28",
+      "last_graded": "2026-10-01",
+      "last_score": 3,
+      "gaps": [
+        "UI State를 화면 렌더링용 스냅샷으로 정의하지 못하고 특정 구현 방식으로 한정함",
+        "UI가 소유할 수 있는 화면 요소 상태와 이벤트 전달 책임을 구분하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-10-01",
+          "score": 3
+        }
+      ]
     },
     "AND-010": {
       "subject": "platform/android",
@@ -2841,14 +2856,22 @@
       "difficulty": "실무",
       "title": "AES-GCM에서 IV를 매번 새로 만들어야 하는 이유는 무엇인가요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-09-28",
+      "last_graded": "2026-10-01",
+      "last_score": 1,
+      "gaps": [
+        "IV의 고유성 요구를 설명하지 못함",
+        "IV 재사용에 따른 키스트림 재사용과 인증 위조 위험을 모름"
+      ],
+      "history": [
+        {
+          "date": "2026-10-01",
+          "score": 1
+        }
+      ]
     },
     "SEC-008": {
       "subject": "platform/security",
@@ -3542,20 +3565,44 @@
       "title": "Android 프로젝트에서 Hilt 없이 Dagger만 사용할 때 의존성 그래프 선언과 Android 구성요소 주입 방식은 어떻게 달라지나요?",
       "answered": false,
       "status": "wrong",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": "2026-09-28",
+      "last_asked": "2026-09-28",
+      "last_graded": "2026-10-01",
       "last_score": 1,
       "gaps": [
-        "순수 Dagger에서 컴포넌트 계층·생성·보관·inject 호출을 직접 구성하는 차이를 설명하지 못함 — 몰라서 틀림",
-        "컴파일 시점 그래프 검증을 Hilt만의 기능으로 잘못 설명함 — 몰라서 틀림",
-        "Hilt가 무겁다는 근거 없는 단정으로 Dagger 선택 기준을 잘못 제시함 — 몰라서 틀림"
+        "컴포넌트 계층·생성·보관·Android 구성요소 주입 책임을 설명하지 못함",
+        "Dagger의 컴파일 시점 그래프 검증을 반대로 이해함"
       ],
       "history": [
         {
           "date": "2026-09-28",
           "score": 1
+        },
+        {
+          "date": "2026-10-01",
+          "score": 1
+        }
+      ]
+    },
+    "CMP-025": {
+      "subject": "platform/compose",
+      "difficulty": "실무",
+      "title": "Compose에서 `CompositionLocal`은 어떤 값을 전달할 때 적합하며, 일반 매개변수 전달 대신 사용해도 되는 기준은 무엇인가요?",
+      "answered": false,
+      "status": "wrong",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-10-01",
+      "last_score": 0,
+      "gaps": [
+        "CompositionLocal의 트리 범위 값 전달과 사용 기준을 모름"
+      ],
+      "history": [
+        {
+          "date": "2026-10-01",
+          "score": 0
         }
       ]
     }

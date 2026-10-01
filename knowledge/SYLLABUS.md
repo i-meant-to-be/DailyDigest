@@ -246,7 +246,7 @@
 - [x] 커스텀 레이아웃을 직접 만들려면 — CMP-022
 - [x] 애니메이션 API 선택 기준 — CMP-023
 - [x] Compose에서 성능 문제를 어떻게 측정하는가 — CMP-024
-- [ ] CompositionLocal은 언제 쓰는가
+- [x] CompositionLocal은 언제 쓰는가 — CMP-025
 
 ## platform/di
 
