@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-01",
+  "updated_at": "2026-10-02",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -2534,14 +2534,14 @@
       "title": "의존성 주입이란 무엇이고 왜 중요한가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 3,
+      "attempts": 4,
       "streak": 0,
-      "last_asked": "2026-09-11",
-      "last_graded": "2026-09-11",
+      "last_asked": "2026-10-02",
+      "last_graded": "2026-10-02",
       "last_score": 3,
       "gaps": [
-        "저장소 패턴을 데이터 출처를 감추는 일관된 접근 계약으로 별도 정의하지 못함 — 알지만 설명하지 못함",
-        "DI만으로 모든 결합도가 낮아진다고 과도하게 일반화해 생성 결합과 구현 결합을 구분하지 못함 — 알지만 설명하지 못함"
+        "저장소 패턴을 일반적인 인터페이스 추상화로 설명하고 데이터 출처를 감추는 일관된 접근 계약이라는 역할을 설명하지 못함 — 알지만 설명하지 못함",
+        "DI 원칙과 DI 컨테이너의 객체 수명주기 관리 역할을 구분하지 못함 — 알지만 설명하지 못함"
       ],
       "history": [
         {
@@ -2554,6 +2554,10 @@
         },
         {
           "date": "2026-09-11",
+          "score": 3
+        },
+        {
+          "date": "2026-10-02",
           "score": 3
         }
       ]
@@ -2900,14 +2904,22 @@
       "difficulty": "실무",
       "title": "인증서 고정(Certificate Pinning)은 무엇을 막고 어떤 위험을 만드나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-10-02",
+      "last_graded": "2026-10-02",
+      "last_score": 0,
+      "gaps": [
+        "인증서 고정이 신뢰할 인증서나 공개 키를 제한해 중간자 공격을 방어하는 원리를 모름 — 몰라서 틀림",
+        "인증서 교체·만료 시 장애 위험과 백업 핀·단계적 배포 같은 완화 방법을 모름 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-10-02",
+          "score": 0
+        }
+      ]
     },
     "SEC-010": {
       "subject": "platform/security",
@@ -3241,14 +3253,22 @@
       "difficulty": "실무",
       "title": "별도 `:navigation` 모듈을 두지 않고 앱 모듈이 네비게이션을 조립하도록 한 이유는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-10-02",
+      "last_graded": "2026-10-02",
+      "last_score": 3,
+      "gaps": [
+        "앱 모듈이 여전히 기능별 네비게이션 트리를 합치는 책임을 갖는다는 점을 반대로 설명함 — 몰라서 틀림",
+        "조립 코드 규모가 작아 별도 모듈의 분리 실익이 없다는 비용 기준을 명확히 설명하지 못함 — 알지만 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-10-02",
+          "score": 3
+        }
+      ]
     },
     "HIL-003": {
       "subject": "project/hilit",
@@ -3537,16 +3557,16 @@
       "difficulty": "실무",
       "title": "Android에서 런타임 권한이 필요한 기능을 실행하려 할 때, 권한 상태 확인부터 요청·거부·재요청·설정 화면 안내까지 어떤 흐름으로 처리해야 하나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 2,
+      "status": "shaky",
+      "attempts": 3,
       "streak": 0,
-      "last_asked": "2026-09-28",
-      "last_graded": "2026-09-28",
-      "last_score": 1,
+      "last_asked": "2026-10-02",
+      "last_graded": "2026-10-02",
+      "last_score": 2,
       "gaps": [
-        "권한 확인·Activity Result API·요청 결과 처리의 전체 흐름을 설명하지 못함 — 몰라서 틀림",
-        "shouldShowRequestPermissionRationale을 재요청 가능 여부로 잘못 이해함 — 몰라서 틀림",
-        "앱의 요청 이력으로 최초 요청과 영구 거부를 구분하는 방법을 설명하지 못함 — 몰라서 틀림"
+        "권한 상태 선확인과 요청 결과 처리의 전체 흐름을 설명하지 못함 — 몰라서 틀림",
+        "shouldShowRequestPermissionRationale과 요청 이력으로 최초 요청·일반 거부·영구 거부를 구분하지 못함 — 몰라서 틀림",
+        "재요청 횟수만으로 설정 화면 안내 시점을 결정한다고 설명함 — 몰라서 틀림"
       ],
       "history": [
         {
@@ -3556,6 +3576,10 @@
         {
           "date": "2026-09-28",
           "score": 1
+        },
+        {
+          "date": "2026-10-02",
+          "score": 2
         }
       ]
     },
@@ -3590,18 +3614,45 @@
       "difficulty": "실무",
       "title": "Compose에서 `CompositionLocal`은 어떤 값을 전달할 때 적합하며, 일반 매개변수 전달 대신 사용해도 되는 기준은 무엇인가요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": "2026-10-01",
-      "last_score": 0,
+      "last_asked": "2026-10-02",
+      "last_graded": "2026-10-02",
+      "last_score": 3,
       "gaps": [
-        "CompositionLocal의 트리 범위 값 전달과 사용 기준을 모름"
+        "CompositionLocal 과사용 시 의존성이 숨고 재사용·테스트가 어려워지는 문제를 구체화하지 못함 — 알지만 설명하지 못함",
+        "CompositionLocal의 상태 변경을 동시 자원 경쟁 문제로 연결함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-10-01",
+          "score": 0
+        },
+        {
+          "date": "2026-10-02",
+          "score": 3
+        }
+      ]
+    },
+    "AND-031": {
+      "subject": "platform/android",
+      "difficulty": "실무",
+      "title": "Android App Bundle은 APK 배포와 무엇이 다르며, 동적 기능 모듈은 어떤 방식으로 기능을 전달하나요? 도입 기준과 설치 실패·미설치 상태를 고려한 앱 설계도 설명해 주세요.",
+      "answered": false,
+      "status": "wrong",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-10-02",
+      "last_score": 0,
+      "gaps": [
+        "AAB가 기기별 최적화 APK 생성을 위한 게시 형식이라는 점을 모름 — 몰라서 틀림",
+        "동적 기능의 전달 방식과 미설치·설치 실패 상태 처리 방법을 모름 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-10-02",
           "score": 0
         }
       ]

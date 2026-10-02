@@ -214,7 +214,7 @@
 - [x] Navigation 컴포넌트의 백스택 관리 — AND-028
 - [x] 딥링크 처리 — AND-029
 - [x] 런타임 권한 요청 흐름 — AND-030
-- [ ] 앱 번들과 동적 기능 모듈
+- [x] 앱 번들과 동적 기능 모듈 — AND-031
 - [ ] Baseline Profile
 - [ ] 접근성 대응
 - [ ] Configuration 변경 외의 프로세스 종료 복구
