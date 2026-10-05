@@ -215,7 +215,7 @@
 - [x] 딥링크 처리 — AND-029
 - [x] 런타임 권한 요청 흐름 — AND-030
 - [x] 앱 번들과 동적 기능 모듈 — AND-031
-- [ ] Baseline Profile
+- [x] Baseline Profile — AND-032
 - [ ] 접근성 대응
 - [ ] Configuration 변경 외의 프로세스 종료 복구
 - [ ] Gradle 빌드 속도를 줄이는 방법
