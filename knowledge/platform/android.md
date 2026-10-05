@@ -216,3 +216,7 @@ navController.navigate("home") {
 ## [AND-032] (실무) Android의 Baseline Profile은 어떻게 앱 실행 성능을 개선하며, 사용자 흐름을 기준으로 어떻게 준비하고 효과를 검증하나요?
 
 > (미작성)
+
+## [AND-033] (실무) 아이콘 버튼과 입력 폼이 있는 Android 화면의 접근성을 어떻게 개선하고 검증하나요?
+
+> (미작성)

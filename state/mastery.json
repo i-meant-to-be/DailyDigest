@@ -734,14 +734,19 @@
       "difficulty": "기초",
       "title": "오버라이드와 오버로딩의 차이는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
-      "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 1,
+      "last_asked": "2026-10-05",
+      "last_graded": "2026-10-05",
+      "last_score": 4,
       "gaps": [],
-      "history": []
+      "history": [
+        {
+          "date": "2026-10-05",
+          "score": 4
+        }
+      ]
     },
     "DSG-002": {
       "subject": "cs/design",
@@ -1059,14 +1064,13 @@
       "title": "프로세스와 스레드의 차이는 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 3,
+      "attempts": 4,
       "streak": 0,
-      "last_asked": "2026-09-18",
-      "last_graded": "2026-09-18",
-      "last_score": 2,
+      "last_asked": "2026-10-05",
+      "last_graded": "2026-10-05",
+      "last_score": 3,
       "gaps": [
-        "코드와 전역 데이터 공유 범위를 같은 프로세스의 스레드 사이로 한정하지 못함 — 알지만 설명하지 못함",
-        "PCB를 커널이 관리하는 자료구조가 아니라 프로세스 영역에 포함된 데이터로 잘못 설명함 — 몰라서 틀림"
+        "공유 힙과 스레드별 프로그램 카운터·레지스터 문맥을 빠뜨려 공유 자원과 개별 실행 문맥을 완결되게 설명하지 못함 — 알지만 설명하지 못함"
       ],
       "history": [
         {
@@ -1080,6 +1084,10 @@
         {
           "date": "2026-09-18",
           "score": 2
+        },
+        {
+          "date": "2026-10-05",
+          "score": 3
         }
       ]
     },
@@ -2489,14 +2497,22 @@
       "difficulty": "실무",
       "title": "Compose의 세 단계(Composition, Layout, Drawing)는 각각 무엇을 하나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-10-05",
+      "last_graded": "2026-10-05",
+      "last_score": 2,
+      "gaps": [
+        "재구성을 건너뛰면 배치와 그리기도 필요 없다고 설명하여 단계별 상태 읽기와 재실행을 혼동함 — 몰라서 틀림",
+        "Layout의 크기 측정과 위치 배치를 구분하여 설명하지 못함 — 알지만 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-10-05",
+          "score": 2
+        }
+      ]
     },
     "CMP-019": {
       "subject": "platform/compose",
@@ -2873,18 +2889,22 @@
       "title": "AES-GCM에서 IV를 매번 새로 만들어야 하는 이유는 무엇인가요?",
       "answered": false,
       "status": "wrong",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-28",
-      "last_graded": "2026-10-01",
+      "last_asked": "2026-10-05",
+      "last_graded": "2026-10-05",
       "last_score": 1,
       "gaps": [
-        "IV의 고유성 요구를 설명하지 못함",
-        "IV 재사용에 따른 키스트림 재사용과 인증 위조 위험을 모름"
+        "같은 키에서 암호화마다 IV가 고유해야 한다는 조건을 키당 하나의 IV로 반대로 설명함 — 몰라서 틀림",
+        "IV의 공개 가능성과 비밀 키스트림을 구분하지 못하고 재사용에 따른 평문 관계 노출·인증 위조를 설명하지 못함 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-10-01",
+          "score": 1
+        },
+        {
+          "date": "2026-10-05",
           "score": 1
         }
       ]
@@ -3691,19 +3711,46 @@
       "difficulty": "실무",
       "title": "Android의 Baseline Profile은 어떻게 앱 실행 성능을 개선하며, 사용자 흐름을 기준으로 어떻게 준비하고 효과를 검증하나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": null,
+      "last_asked": "2026-10-05",
       "last_graded": "2026-10-05",
-      "last_score": 0,
+      "last_score": 2,
       "gaps": [
-        "Baseline Profile의 목적·사전 컴파일 원리와 생성·검증 방법을 모름 — 몰라서 틀림"
+        "AOT 결과를 앱 패키지에 포함한다고 설명하여 프로필 배포와 기기에서의 컴파일을 혼동함 — 몰라서 틀림",
+        "사용자 흐름 실행으로 프로필을 생성하고 동일 조건에서 적용 전후 성능을 비교하는 과정을 설명하지 못함 — 알지만 설명하지 못함"
       ],
       "history": [
         {
           "date": "2026-10-05",
           "score": 0
+        },
+        {
+          "date": "2026-10-05",
+          "score": 2
+        }
+      ]
+    },
+    "AND-033": {
+      "subject": "platform/android",
+      "difficulty": "실무",
+      "title": "아이콘 버튼과 입력 폼이 있는 Android 화면의 접근성을 어떻게 개선하고 검증하나요?",
+      "answered": false,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-10-05",
+      "last_score": 2,
+      "gaps": [
+        "입력 필드의 레이블·오류 안내·초점 순서 대신 음성 입력을 주된 접근성 대응으로 제시함 — 몰라서 틀림",
+        "글자 확대 시 잘림·겹침 대응과 TalkBack 실제 조작 검증 방법을 설명하지 못함 — 알지만 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-10-05",
+          "score": 2
         }
       ]
     }
