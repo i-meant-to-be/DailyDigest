@@ -1,5 +1,17 @@
 # 지식 원문 정합성 진단
 
+## J. Compose 원문 보완
+
+### J-01 · `DisposableEffect`의 등록과 정리 흐름 구분
+
+- **발견일** 2026-10-06, 다이제스트 2026-10-06-1636 채점
+- **위치** `knowledge/platform/compose.md` CMP-008
+- **현재** Composable이 정리될 때 실행되는 작업으로 설명하고, Composition을 떠날 때 자원을 해제한다고만 적음.
+- **문제** 효과 본문은 Composition에 들어올 때 실행되며, 정리는 그 안에서 등록한 `onDispose`가 담당한다. 키 변경 시에도 기존 효과를 정리하고 새 효과를 실행한다. 현재 설명은 효과 본문 자체가 정리 시점에 실행된다는 오해를 부른다.
+- **제안** 같은 효과 본문에서 리스너를 등록하고 `onDispose`에서 해제하는 예, 키 변경 시 정리 후 재등록, Composition 이탈 시 정리의 흐름을 보충한다.
+- **출처** [Android 공식 문서](https://developer.android.com/develop/ui/compose/side-effects#disposableeffect)
+- **승인:** [ ] — 제안만 기록, 원문 미수정
+
 대상: `database/` 8개 파일, 431줄, 79문항 (커밋 `a655bec` 기준)
 작성: 2026-09-02
 

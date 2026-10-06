@@ -217,7 +217,7 @@
 - [x] 앱 번들과 동적 기능 모듈 — AND-031
 - [x] Baseline Profile — AND-032
 - [x] 접근성 대응 — AND-033
-- [ ] Configuration 변경 외의 프로세스 종료 복구
+- [x] Configuration 변경 외의 프로세스 종료 복구 — AND-034
 - [ ] Gradle 빌드 속도를 줄이는 방법
 
 ## platform/compose

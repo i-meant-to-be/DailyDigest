@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05",
+  "updated_at": "2026-10-06",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -866,14 +866,14 @@
       "title": "TCP와 UDP는 무엇이고 어떤 차이가 있나요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 3,
+      "attempts": 4,
       "streak": 0,
-      "last_asked": "2026-09-28",
-      "last_graded": "2026-10-01",
-      "last_score": 2,
+      "last_asked": "2026-10-06",
+      "last_graded": "2026-10-06",
+      "last_score": 3,
       "gaps": [
-        "TCP와 UDP가 기본 제공하는 제어 기능을 구체적으로 설명하지 못함",
-        "QUIC의 신뢰성·혼잡 제어·TLS·독립 스트림을 개발자 선택 사항으로 오해함"
+        "바이트 스트림·데이터그램과 수신 측 순서 복원을 구분해 설명하지 못함 — 알지만 설명하지 못함",
+        "QUIC 구현체의 손실 복구·혼잡 제어 과정을 구체적으로 설명하지 못함 — 알지만 설명하지 못함"
       ],
       "history": [
         {
@@ -887,6 +887,10 @@
         {
           "date": "2026-10-01",
           "score": 2
+        },
+        {
+          "date": "2026-10-06",
+          "score": 3
         }
       ]
     },
@@ -1431,15 +1435,14 @@
       "title": "`val`과 `var`의 차이는 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 2,
+      "attempts": 3,
       "streak": 0,
-      "last_asked": "2026-09-28",
-      "last_graded": "2026-09-28",
+      "last_asked": "2026-10-06",
+      "last_graded": "2026-10-06",
       "last_score": 2,
       "gaps": [
-        "lateinit을 val에 사용할 수 있다고 잘못 설명함 — 몰라서 틀림",
-        "val과 var를 getter·setter 유무로 정의하지 못하고 커스텀 getter의 계산형 프로퍼티 특성을 설명하지 못함 — 몰라서 틀림",
-        "const val의 선언 위치·허용 타입·컴파일 시점 인라인 조건을 설명하지 못함 — 몰라서 틀림"
+        "lateinit을 val의 자동 지연 초기화 기능으로 오해하고 적용 조건을 모름 — 몰라서 틀림",
+        "계산형 val의 가변 반환값과 const val의 타입·컴파일 시점 제약을 설명하지 못함 — 알지만 설명하지 못함"
       ],
       "history": [
         {
@@ -1448,6 +1451,10 @@
         },
         {
           "date": "2026-09-28",
+          "score": 2
+        },
+        {
+          "date": "2026-10-06",
           "score": 2
         }
       ]
@@ -2345,14 +2352,22 @@
       "difficulty": "기초",
       "title": "`DisposableEffect`는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "wrong",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-10-06",
+      "last_graded": "2026-10-06",
+      "last_score": 1,
+      "gaps": [
+        "등록을 효과 본문에서 하고 정리를 onDispose에서 하는 흐름을 모름 — 몰라서 틀림",
+        "키 변경 시 정리 후 재등록과 Composition 이탈 시 정리를 코루틴 재시작과 혼동함 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-10-06",
+          "score": 1
+        }
+      ]
     },
     "CMP-009": {
       "subject": "platform/compose",
@@ -2730,14 +2745,22 @@
       "difficulty": "실무",
       "title": "테스트에서 의존성을 가짜 구현으로 바꾸려면 어떻게 하나요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-10-06",
+      "last_graded": "2026-10-06",
+      "last_score": 3,
+      "gaps": [
+        "테스트 전용 그래프로 운영 바인딩을 교체·격리하는 흐름을 설명하지 못함 — 알지만 설명하지 못함",
+        "빌드 설정 플래그 전달과 Hilt 그래프 생성·객체 공급 시점을 구분하지 못함 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-10-06",
+          "score": 3
+        }
+      ]
     },
     "DI-009": {
       "subject": "platform/di",
@@ -2936,20 +2959,24 @@
       "difficulty": "실무",
       "title": "인증서 고정(Certificate Pinning)은 무엇을 막고 어떤 위험을 만드나요?",
       "answered": false,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-10-02",
-      "last_graded": "2026-10-02",
-      "last_score": 0,
+      "last_asked": "2026-10-06",
+      "last_graded": "2026-10-06",
+      "last_score": 2,
       "gaps": [
-        "인증서 고정이 신뢰할 인증서나 공개 키를 제한해 중간자 공격을 방어하는 원리를 모름 — 몰라서 틀림",
-        "인증서 교체·만료 시 장애 위험과 백업 핀·단계적 배포 같은 완화 방법을 모름 — 몰라서 틀림"
+        "허용된 인증서·공개 키와의 일치 검증으로 중간자 공격을 제한하는 원리를 설명하지 못함 — 알지만 설명하지 못함",
+        "백업 핀 선배포와 서버 키 단계적 교체로 구버전 앱 장애를 줄이는 방법을 모름 — 몰라서 틀림"
       ],
       "history": [
         {
           "date": "2026-10-02",
           "score": 0
+        },
+        {
+          "date": "2026-10-06",
+          "score": 2
         }
       ]
     },
@@ -3750,6 +3777,28 @@
       "history": [
         {
           "date": "2026-10-05",
+          "score": 2
+        }
+      ]
+    },
+    "AND-034": {
+      "subject": "platform/android",
+      "difficulty": "실무",
+      "title": "구성 변경과 프로세스 종료에서 상태 복구는 어떻게 다르며, 입력 중인 값과 저장을 완료한 데이터는 각각 어떻게 보존하나요?",
+      "answered": false,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-10-06",
+      "last_score": 2,
+      "gaps": [
+        "시스템의 화면 복구 상태를 앱의 디스크 백업·수동 복원으로 오해함 — 몰라서 틀림",
+        "입력 중 상태 복구와 저장 완료 데이터의 영구 저장·재조회 책임을 구분하지 못함 — 몰라서 틀림"
+      ],
+      "history": [
+        {
+          "date": "2026-10-06",
           "score": 2
         }
       ]
