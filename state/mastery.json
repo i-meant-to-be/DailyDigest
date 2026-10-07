@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06",
+  "updated_at": "2026-10-07",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -1465,14 +1465,14 @@
       "title": "Java와 Kotlin의 차이점은 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 2,
+      "attempts": 3,
       "streak": 0,
-      "last_asked": "2026-09-28",
-      "last_graded": "2026-10-01",
-      "last_score": 2,
+      "last_asked": "2026-10-07",
+      "last_graded": "2026-10-07",
+      "last_score": 3,
       "gaps": [
-        "JVM 바이트코드 컴파일 경로와 상용구 감소의 대표 사례를 설명하지 못함",
-        "코루틴과 스레드의 관계를 정확히 구분하지 못함"
+        "코루틴 중단을 스레드 스택 스냅샷 저장으로 설명하고 재개 상태를 가진 상태 머신과 구분하지 못함",
+        "Java의 접근자 직접 작성과 선택적인 코드 생성 라이브러리를 구분하지 못함"
       ],
       "history": [
         {
@@ -1482,6 +1482,10 @@
         {
           "date": "2026-10-01",
           "score": 2
+        },
+        {
+          "date": "2026-10-07",
+          "score": 3
         }
       ]
     },
@@ -2444,14 +2448,21 @@
       "difficulty": "기초",
       "title": "Modifier의 순서가 중요한 이유는 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-10-07",
+      "last_graded": "2026-10-07",
+      "last_score": 3,
+      "gaps": [
+        "두 Modifier 순서에서 여백이 클릭 영역에 포함되는지 명시하지 못하고 순차적인 영역 확정으로 설명함 — 비교 설명이 모호함"
+      ],
+      "history": [
+        {
+          "date": "2026-10-07",
+          "score": 3
+        }
+      ]
     },
     "CMP-015": {
       "subject": "platform/compose",
@@ -2577,14 +2588,14 @@
       "title": "의존성 주입이란 무엇이고 왜 중요한가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 4,
+      "attempts": 5,
       "streak": 0,
-      "last_asked": "2026-10-02",
-      "last_graded": "2026-10-02",
+      "last_asked": "2026-10-07",
+      "last_graded": "2026-10-07",
       "last_score": 3,
       "gaps": [
-        "저장소 패턴을 일반적인 인터페이스 추상화로 설명하고 데이터 출처를 감추는 일관된 접근 계약이라는 역할을 설명하지 못함 — 알지만 설명하지 못함",
-        "DI 원칙과 DI 컨테이너의 객체 수명주기 관리 역할을 구분하지 못함 — 알지만 설명하지 못함"
+        "저장소 패턴을 데이터 소스 인터페이스 추상화로 설명하고 일관된 데이터 접근 계약의 구체적 예를 제시하지 못함 — 설명이 불완전함",
+        "DI가 의존 객체의 파괴 책임까지 모두 없앤다고 표현하고 자원 정리와 객체 제공 범위 관리를 구분하지 못함"
       ],
       "history": [
         {
@@ -2601,6 +2612,10 @@
         },
         {
           "date": "2026-10-02",
+          "score": 3
+        },
+        {
+          "date": "2026-10-07",
           "score": 3
         }
       ]
@@ -3008,14 +3023,22 @@
       "difficulty": "실무",
       "title": "루팅된 기기나 디컴파일에 대해 클라이언트가 할 수 있는 것과 할 수 없는 것은 무엇인가요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-10-07",
+      "last_graded": "2026-10-07",
+      "last_score": 2,
+      "gaps": [
+        "루팅 후 앱 파일 접근과 하드웨어 보호 키 추출·실행 중 평문 노출을 구분하지 못함 — 개념 경계가 불완전함",
+        "난독화 외의 방어와 클라이언트를 신뢰하지 않는 서버 검증 전략을 설명하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-10-07",
+          "score": 2
+        }
+      ]
     },
     "SEC-012": {
       "subject": "platform/security",
@@ -3300,19 +3323,24 @@
       "title": "멀티모듈에서 Feature를 `api`와 `impl`로 나누는 이유는 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-09-04",
-      "last_graded": "2026-09-04",
-      "last_score": 3,
+      "last_asked": "2026-10-07",
+      "last_graded": "2026-10-07",
+      "last_score": 2,
       "gaps": [
-        "app 모듈은 각 기능의 네비게이션 트리를 합치고 기능 impl끼리는 의존하지 않는다는 책임 구조를 명시하지 못함",
-        "모듈 증가가 Gradle 빌드 시간을 반드시 늦춘다고 근거 없이 단정함"
+        "api의 이동 계약과 impl의 화면·진입점·네비게이션 구성 책임을 혼동함",
+        "기능 impl끼리 의존하지 않고 다른 기능 api만 참조한다는 방향을 명시하지 못함",
+        "모듈 증가의 빌드 시간 영향을 묻는 부분에 답하지 못함"
       ],
       "history": [
         {
           "date": "2026-09-04",
           "score": 3
+        },
+        {
+          "date": "2026-10-07",
+          "score": 2
         }
       ]
     },
@@ -3799,6 +3827,29 @@
       "history": [
         {
           "date": "2026-10-06",
+          "score": 2
+        }
+      ]
+    },
+    "AND-035": {
+      "subject": "platform/android",
+      "difficulty": "실무",
+      "title": "Android 프로젝트의 Gradle 빌드가 느리다면 무엇부터 확인하고, 어떤 방법으로 시간을 줄이겠습니까? 각 방법이 효과를 내는 조건과 개선 여부를 확인하는 방법도 설명해 주세요.",
+      "answered": false,
+      "status": "shaky",
+      "attempts": 1,
+      "streak": 0,
+      "last_asked": null,
+      "last_graded": "2026-10-07",
+      "last_score": 2,
+      "gaps": [
+        "증분 빌드·작업 결과 캐시·구성 캐시의 역할과 재사용 조건을 구분하지 못함",
+        "모듈 분리의 효과를 재실행 범위로만 판단하고 동일 조건의 전체 소요 시간 비교와 구성 비용을 설명하지 못함",
+        "빌드 스크립트 재사용을 속도 개선으로 연결할 구체적 근거를 제시하지 못함"
+      ],
+      "history": [
+        {
+          "date": "2026-10-07",
           "score": 2
         }
       ]

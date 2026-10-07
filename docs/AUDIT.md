@@ -1,5 +1,37 @@
 # 지식 원문 정합성 진단
 
+## K. 2026-10-07 다이제스트 원문 보완
+
+### K-01 · Modifier의 그리기 결과와 클릭 영역 구분
+
+- **발견일** 2026-10-07, 다이제스트 2026-10-07-1626 채점
+- **위치** `knowledge/platform/compose.md` CMP-014
+- **현재** `clickable`과 `clip`의 순서를 설명하면서 클릭 가능한 영역을 직사각형·둥근 사각형으로 "출력"한다고 표현함.
+- **문제** 그리기 클리핑·터치 판정·클릭 표시 효과를 구분하지 않아, 화면에 그려진 모양으로 클릭 영역이 자동 결정된다고 오해하기 쉽다.
+- **제안** 먼저 공식 문서의 `clickable().padding()` 예로 여백 포함 여부를 설명하고, `clip` 예는 그리기 및 클릭 표시 효과와 터치 판정을 구분해 보충한다.
+- **출처** [Modifier 순서](https://developer.android.com/develop/ui/compose/modifiers#order-of-modifiers-matters), [그리기 클리핑](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers)
+- **승인:** [ ] — 제안만 기록, 원문 미수정
+
+### K-02 · Java 접근자와 Kotlin의 컴파일·코루틴 관계
+
+- **발견일** 2026-10-07, 다이제스트 2026-10-07-1626 채점
+- **위치** `knowledge/lang/java-kotlin.md` JK-004
+- **현재** Java에서는 Lombok 등으로 접근자를 추가해야 한다고 적고, JVM 컴파일 경로와 코루틴·스레드 관계는 생략함.
+- **문제** Java 접근자는 직접 작성할 수 있으며 Lombok은 코드 생성을 위한 선택 사항이다. 이번 답변은 JVM 바이트코드와 코루틴·스레드의 층위 구분을 원문보다 구체적으로 설명했지만, 스택 스냅샷이라는 설명은 교정이 필요하다.
+- **제안** Java의 직접 작성과 Kotlin의 기본 접근자·데이터 클래스 생성을 비교하고, JVM 대상 컴파일을 명시한다. 코루틴은 스레드에서 실행하며 중단 시 재개 지점과 필요한 값을 보관하는 상태 머신으로 설명하고, 스레드 호출 스택 전체를 복사하는 것으로 설명하지 않는다.
+- **출처** [Kotlin 프로퍼티](https://kotlinlang.org/docs/properties.html), [Kotlin 코루틴 명세](https://kotlinlang.org/spec/asynchronous-programming-with-coroutines.html)
+- **승인:** [ ] — 제안만 기록, 원문 미수정
+
+### K-03 · DI 원칙과 컨테이너 역할 분리
+
+- **발견일** 2026-10-07, 다이제스트 2026-10-07-1626 채점
+- **위치** `knowledge/platform/di.md` DI-001
+- **현재** 외부 주입과 결합도·테스트 이점만 설명함.
+- **근거** 이번 답변은 외부에서 의존성을 전달한다는 DI 원칙과 Hilt 등의 객체 생성·범위 관리 역할을 원문보다 명확히 구분했다. 다만 자원 파괴 책임이 전부 없어진다는 표현은 그대로 옮기면 안 된다.
+- **제안** DI는 컨테이너 없이도 가능하며, 컨테이너는 의존성 그래프 구성과 객체 제공 범위 관리를 돕는 도구라고 보충한다. 자원 정리와 잘못된 장기 참조 방지는 별도 책임임을 명시한다.
+- **출처** [Android 의존성 주입](https://developer.android.com/training/dependency-injection)
+- **승인:** [ ] — 제안만 기록, 원문 미수정
+
 ## J. Compose 원문 보완
 
 ### J-01 · `DisposableEffect`의 등록과 정리 흐름 구분
