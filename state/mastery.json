@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07",
+  "updated_at": "2026-11-06",
   "questions": {
     "ALG-001": {
       "subject": "cs/algorithms",
@@ -1465,14 +1465,14 @@
       "title": "Java와 Kotlin의 차이점은 무엇인가요?",
       "answered": true,
       "status": "shaky",
-      "attempts": 3,
+      "attempts": 4,
       "streak": 0,
-      "last_asked": "2026-10-07",
-      "last_graded": "2026-10-07",
+      "last_asked": "2026-11-03",
+      "last_graded": "2026-11-06",
       "last_score": 3,
       "gaps": [
-        "코루틴 중단을 스레드 스택 스냅샷 저장으로 설명하고 재개 상태를 가진 상태 머신과 구분하지 못함",
-        "Java의 접근자 직접 작성과 선택적인 코드 생성 라이브러리를 구분하지 못함"
+        "코루틴 중단 시 스레드가 다른 작업에 사용될 수 있음은 알지만 항상 다른 코루틴이 배정되는 것처럼 설명하고 스레드 블로킹과 운영체제 스케줄링을 혼동함 — 개념 구분 부족",
+        "모든 Kotlin 프로퍼티에 setter가 제공되는 것처럼 설명함 — val·var 구분 부족"
       ],
       "history": [
         {
@@ -1485,6 +1485,10 @@
         },
         {
           "date": "2026-10-07",
+          "score": 3
+        },
+        {
+          "date": "2026-11-06",
           "score": 3
         }
       ]
@@ -2356,20 +2360,23 @@
       "difficulty": "기초",
       "title": "`DisposableEffect`는 무엇인가요?",
       "answered": true,
-      "status": "wrong",
-      "attempts": 1,
+      "status": "shaky",
+      "attempts": 2,
       "streak": 0,
-      "last_asked": "2026-10-06",
-      "last_graded": "2026-10-06",
-      "last_score": 1,
+      "last_asked": "2026-11-03",
+      "last_graded": "2026-11-06",
+      "last_score": 2,
       "gaps": [
-        "등록을 효과 본문에서 하고 정리를 onDispose에서 하는 흐름을 모름 — 몰라서 틀림",
-        "키 변경 시 정리 후 재등록과 Composition 이탈 시 정리를 코루틴 재시작과 혼동함 — 몰라서 틀림"
+        "등록·해제 위치와 순서는 알지만 정리 대상을 외부 리스너가 아닌 코루틴으로 설명함 — 개념 혼동"
       ],
       "history": [
         {
           "date": "2026-10-06",
           "score": 1
+        },
+        {
+          "date": "2026-11-06",
+          "score": 2
         }
       ]
     },
@@ -2746,14 +2753,21 @@
       "difficulty": "심화",
       "title": "Dagger가 컴파일 시점에 의존성 그래프를 검증한다는 것은 무슨 뜻인가요?",
       "answered": false,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-11-03",
+      "last_graded": "2026-11-06",
+      "last_score": 3,
+      "gaps": [
+        "컴파일 시 검증과 순환 의존성은 알지만 요청 타입·한정자에 맞는 바인딩 연결, 누락·중복·스코프 오류까지 설명하지 못함 — 설명 부족"
+      ],
+      "history": [
+        {
+          "date": "2026-11-06",
+          "score": 3
+        }
+      ]
     },
     "DI-008": {
       "subject": "platform/di",
@@ -2927,14 +2941,15 @@
       "title": "AES-GCM에서 IV를 매번 새로 만들어야 하는 이유는 무엇인가요?",
       "answered": false,
       "status": "wrong",
-      "attempts": 2,
+      "attempts": 3,
       "streak": 0,
-      "last_asked": "2026-10-05",
-      "last_graded": "2026-10-05",
-      "last_score": 1,
+      "last_asked": "2026-11-03",
+      "last_graded": "2026-11-06",
+      "last_score": 0,
       "gaps": [
-        "같은 키에서 암호화마다 IV가 고유해야 한다는 조건을 키당 하나의 IV로 반대로 설명함 — 몰라서 틀림",
-        "IV의 공개 가능성과 비밀 키스트림을 구분하지 못하고 재사용에 따른 평문 관계 노출·인증 위조를 설명하지 못함 — 몰라서 틀림"
+        "IV를 비밀로 숨겨야 하고 공개되면 키를 유추할 수 있다고 오해함 — 몰라서 틀림",
+        "동일 키의 매 암호화마다 IV가 고유해야 함을 키마다 다른 IV라는 조건으로 혼동함 — 몰라서 틀림",
+        "동일 키·IV 재사용에 따른 평문 관계 노출과 인증 위조를 설명하지 못함 — 몰라서 틀림"
       ],
       "history": [
         {
@@ -2944,6 +2959,10 @@
         {
           "date": "2026-10-05",
           "score": 1
+        },
+        {
+          "date": "2026-11-06",
+          "score": 0
         }
       ]
     },
@@ -3371,14 +3390,22 @@
       "difficulty": "실무",
       "title": "Gradle Convention Plugin을 Base·Capability·Composite·Quality로 나눈 기준은 무엇인가요?",
       "answered": true,
-      "status": "unseen",
-      "attempts": 0,
+      "status": "shaky",
+      "attempts": 1,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": null,
-      "last_score": null,
-      "gaps": [],
-      "history": []
+      "last_asked": "2026-11-03",
+      "last_graded": "2026-11-06",
+      "last_score": 2,
+      "gaps": [
+        "Composite를 하위 플러그인 조합이 아닌 부가 기능으로 설명함 — 몰라서 틀림",
+        "Capability의 단일 기능 책임과 Quality의 개별 도구·조합 구분을 설명하지 못함 — 설명 부족"
+      ],
+      "history": [
+        {
+          "date": "2026-11-06",
+          "score": 2
+        }
+      ]
     },
     "HIL-004": {
       "subject": "project/hilit",
@@ -3837,19 +3864,22 @@
       "title": "Android 프로젝트의 Gradle 빌드가 느리다면 무엇부터 확인하고, 어떤 방법으로 시간을 줄이겠습니까? 각 방법이 효과를 내는 조건과 개선 여부를 확인하는 방법도 설명해 주세요.",
       "answered": false,
       "status": "shaky",
-      "attempts": 1,
+      "attempts": 2,
       "streak": 0,
-      "last_asked": null,
-      "last_graded": "2026-10-07",
+      "last_asked": "2026-11-03",
+      "last_graded": "2026-11-06",
       "last_score": 2,
       "gaps": [
-        "증분 빌드·작업 결과 캐시·구성 캐시의 역할과 재사용 조건을 구분하지 못함",
-        "모듈 분리의 효과를 재실행 범위로만 판단하고 동일 조건의 전체 소요 시간 비교와 구성 비용을 설명하지 못함",
-        "빌드 스크립트 재사용을 속도 개선으로 연결할 구체적 근거를 제시하지 못함"
+        "컨벤션 스크립트 분리만으로 빌드 영향 전파가 줄어든다고 설명함 — 개념 혼동",
+        "증분 빌드와 빌드 캐시를 제시했지만 변경 감지·태스크 생략·산출물 재사용의 차이를 설명하지 못함 — 설명 부족"
       ],
       "history": [
         {
           "date": "2026-10-07",
+          "score": 2
+        },
+        {
+          "date": "2026-11-06",
           "score": 2
         }
       ]
